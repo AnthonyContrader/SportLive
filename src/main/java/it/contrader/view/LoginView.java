@@ -19,10 +19,10 @@ public class LoginView extends AbstractView {
 		
 		System.out.println("----- .:LOGIN:. ----");
 		
-		System.out.println(" Nome utente:");
+		System.out.println("Nome utente:");
 		this.username = getInput();
 		
-		System.out.println(" Password:");
+		System.out.println("Password:");
 		this.password = getInput();
 	}
 

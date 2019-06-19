@@ -17,9 +17,18 @@ public class HomeUserView extends AbstractView{
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("NESSUNA OPZIONE DISPONIBILE!");
-		System.out.println("\n Esatto, puoi solo uscire...");
+		System.out.println("[L] Player list [A] Add new player [G] Generate the team [E] Exit");
 		choice = this.getInput();
+		
+		/**
+		 * Le opzioni del coach:
+		 * 
+		 * visualizzare lista player
+		 * modificare lista player o visualizzare caratteristiche player
+		 * creare nuovo player
+		 * generare la formazione 
+		 * uscire
+		 */
 
 	}
 
@@ -31,6 +40,14 @@ public class HomeUserView extends AbstractView{
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
+		case "a":
+			//TODO aggiungere un nuovo player
+			break;
+		case "g":
+			//TODO genera nuovo player
+			break;
+		case "l":
+			//TODO visualizza lista player
 
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
