@@ -29,11 +29,11 @@ public class HomeController implements Controller {
 			// Reindirizza alla giusta view in base allo usertype
 			switch(usertype) {
 			
-			case "ADMIN":
+			case "admin":
 				MainDispatcher.getInstance().callView("HomeAdmin", request);
 				break;
 				
-			case "USER": 
+			case "coach": 
 				MainDispatcher.getInstance().callView("HomeUser", request);
 				break;
 			
