@@ -21,5 +21,6 @@ public interface Service<DTO> {
 	public boolean update(DTO dto);
 	
 	public boolean delete(int id);
+	
 
 }
