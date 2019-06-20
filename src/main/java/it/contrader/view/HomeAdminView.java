@@ -34,7 +34,7 @@ public class HomeAdminView extends AbstractView {
     public void showOptions() {
         System.out.println("-------------MENU------------\n");
         System.out.println(" Seleziona cosa vuoi gestire:");
-        System.out.println("[U]Coach List [A] Add Coach [E]Exit");
+        System.out.println("[U]Coach List [E]Exit");
         //Il metodo che salva l'input nella stringa choice.
         //getInput() è definito in AbstractView.
         choice = this.getInput();
@@ -51,7 +51,7 @@ public class HomeAdminView extends AbstractView {
         
         case "u":
         	System.out.println("OOOOK");
-        	this.request.put("mode", "coach");   //da mettere COACHLIST
+        	this.request.put("mode", "USERLIST");   //da mettere COACHLIST
         	MainDispatcher.getInstance().callAction("User", "doControl", request);
 
         	break;
@@ -60,7 +60,7 @@ public class HomeAdminView extends AbstractView {
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
         case "a":
-        	MainDispatcher.getInstance().callAction("AdminInsertView", "doControl", request);
+        	MainDispatcher.getInstance().callAction("User", "doControl", request);
         	//aggiungere un coach (user)
         	break;
         default:

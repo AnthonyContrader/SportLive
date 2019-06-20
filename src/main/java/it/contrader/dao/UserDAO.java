@@ -14,11 +14,11 @@ import it.contrader.model.User;
  */
 public class UserDAO implements DAO<User> {
 
-	private final String QUERY_ALL = "SELECT * FROM coach";
+	private final String QUERY_ALL = "SELECT * FROM user";
 	private final String QUERY_CREATE = "INSERT INTO user (username, password, usertype) VALUES (?,?,?)";
-	private final String QUERY_READ = "SELECT * FROM coach WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE coach SET username=?, password=?, usertype=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM coach WHERE id=?";
+	private final String QUERY_READ = "SELECT * FROM user WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE user SET username=?, password=?, usertype=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
 
 	public UserDAO() {
 

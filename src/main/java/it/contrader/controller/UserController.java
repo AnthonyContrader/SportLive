@@ -114,6 +114,7 @@ public class UserController implements Controller {
 		case "GETCHOICE":
 					
 					//toUpperCase() mette in maiuscolo la scelta
+			
 			switch (choice.toUpperCase()) {
 			
 			case "L":
