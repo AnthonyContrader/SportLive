@@ -2,7 +2,6 @@ package it.contrader.converter;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import it.contrader.dto.UserDTO;
 import it.contrader.model.User;
 
