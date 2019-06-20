@@ -1,6 +1,7 @@
-package it.contrader.model;
+package it.contrader.dto;
 
-public class Player {
+public class PlayerDTO {
+
 	
 	private int id;
 	
@@ -30,11 +31,10 @@ public class Player {
 	
 	private int min;
 	
-	public Player () {
-		
+	public PlayerDTO() {
 	}
 	
-	public Player (int id, int idcoach, String password, String playertype, String name, String surname, int height, double weight, int age, int pr, int gf, int gs, double kmp, int min) {
+	public PlayerDTO (int id, int idcoach, String password, String playertype, String name, String surname, int height, double weight, int age, int pr, int gf, int gs, double kmp, int min) {
 		this.id = id;
 		this.idcoach = idcoach;
 		this.password = password;
@@ -168,73 +168,4 @@ public class Player {
 		return  id + "\t"  + idcoach +"\t\t" + password + "\t\t" +  playertype + "\t\t" + name + "\t\t" + surname + "\t\t" + height + "\t\t" + weight + "\t\t" + age + "\t\t" + pr + "\t\t" + gf + "\t\t" + gs + "\t\t" + kmp + "\t\t" + min ;
 	}
 	
-	
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Player other = (Player) obj;
-		if(id != other.id)
-			return false;
-		if(idcoach != other.idcoach)
-			return false;
-		if(height != other.height)
-			return false;
-		if(age != other.age)
-			return false;
-		if(pr != other.pr)
-			return false;
-		if(gf != other.gf)
-			return false;
-		if(gs != other.gs)
-			return false;
-		if(min != other.min)
-			return false;
-		if(weight != other.weight)
-			return false;
-		if(kmp != other.kmp)
-			return false;
-		if (password == null) {	
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (playertype == null) {
-			if (other.playertype != null)
-				return false;
-		} else if (!playertype.equals(other.playertype))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (surname == null) {
-			if (other.surname != null)
-				return false;
-		} else if (!surname.equals(other.surname))
-			return false;
-		return true;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-
 }

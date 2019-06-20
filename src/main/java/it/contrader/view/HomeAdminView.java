@@ -48,19 +48,23 @@ public class HomeAdminView extends AbstractView {
     	//crea una nuova Request (vedi classe Request)
     	request = new Request();
         switch (choice) {
+        
         case "u":
+        	System.out.println("OOOOK");
         	this.request.put("mode", "coach");   //da mettere COACHLIST
         	MainDispatcher.getInstance().callAction("User", "doControl", request);
+
         	break;
  
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
         case "a":
-        	//aggiungere un coach
+        	MainDispatcher.getInstance().callAction("AdminInsertView", "doControl", request);
+        	//aggiungere un coach (user)
         	break;
         default:
-        	
+
             request.put("choice", choice);
         	MainDispatcher.getInstance().callAction("Login", "doControl", request);
         }
