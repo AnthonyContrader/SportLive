@@ -8,8 +8,8 @@ import it.contrader.model.Player;
 
 
 
-public class PlayerDAO implements DAO<Player> {
-
+public class PlayerDAO /*implements DAO<Player>*/ {
+/*
 	
 	private final String QUERY_ALL = "SELECT * FROM players";
 	private final String QUERY_CREATE = "INSERT INTO players (password, playertype, name, surname) VALUES (?,?,?,?)";
@@ -67,7 +67,7 @@ public class PlayerDAO implements DAO<Player> {
 					palyerToUpdate.setPlayertype((palyerToUpdate.getPlayertype());
 				}
 				if (palyerToUpdate.getName() == null || palyerToUpdate.getName().equals("")) {
-					
+					palyerToUpdate
 				}
 			}catch (SQLException e) {
 				return false;
@@ -107,5 +107,5 @@ public class PlayerDAO implements DAO<Player> {
 		return false;
 	}
 
-
+*/
 }
