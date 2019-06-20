@@ -50,10 +50,8 @@ public class HomeAdminView extends AbstractView {
         switch (choice) {
         
         case "u":
-        	System.out.println("OOOOK");
         	this.request.put("mode", "USERLIST");   //da mettere COACHLIST
         	MainDispatcher.getInstance().callAction("User", "doControl", request);
-
         	break;
  
         case "e":
