@@ -8,8 +8,8 @@ import it.contrader.model.Player;
 
 
 
-public class PlayerDAO /*implements DAO<Player>*/ {
-/*
+public class PlayerDAO implements DAO<Player> {
+
 	
 	private final String QUERY_ALL = "SELECT * FROM players";
 	private final String QUERY_CREATE = "INSERT INTO players (password, playertype, name, surname) VALUES (?,?,?,?)";
@@ -39,7 +39,7 @@ public class PlayerDAO /*implements DAO<Player>*/ {
 				int gs = resultSet.getInt("gs");
 				double kmp = resultSet.getDouble("kmp");
 				int min = resultSet.getInt("min");
-				player = new Player(password, playertype, name, surname, height, weight, age, pr, gf, gs, kmp, min);
+				player = new Player(id, idcoach, password, playertype, name, surname, height, weight, age, pr, gf, gs, kmp, min);
 				player.setId(id);
 				playerList.add(player);
 			}
@@ -50,25 +50,52 @@ public class PlayerDAO /*implements DAO<Player>*/ {
 	}
 	
 	
-	public boolean updatePlayer(Player palyerToUpdate) {
+	public boolean updatePlayer(Player playerToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 		
-		if(palyerToUpdate.getId() == 0) {
+		if(playerToUpdate.getId() == 0) {
 			return false;
 		}
 
-		Player playerRead = read(palyerToUpdate.getId());
-		if (!playerRead.equals(palyerToUpdate)) {
+		Player playerRead = read(playerToUpdate.getId());
+		if (!playerRead.equals(playerToUpdate)) {
 			try {
-				if (palyerToUpdate.getPassword()==null || palyerToUpdate.getPassword().equals("")) {
-					palyerToUpdate.setPassword(palyerToUpdate.getPassword());
+				if (playerToUpdate.getPassword()==null || playerToUpdate.getPassword().equals("")) {
+					playerToUpdate.setPassword(playerToUpdate.getPassword());
 				}
-				if (palyerToUpdate.getPlayertype() == null || palyerToUpdate.getPlayertype().equals("")) {
-					palyerToUpdate.setPlayertype((palyerToUpdate.getPlayertype());
+				if (playerToUpdate.getPlayertype() == null || playerToUpdate.getPlayertype().equals("")) {
+					playerToUpdate.setPlayertype(playerToUpdate.getPlayertype());
 				}
-				if (palyerToUpdate.getName() == null || palyerToUpdate.getName().equals("")) {
-					palyerToUpdate
+				if (playerToUpdate.getName() == null || playerToUpdate.getName().equals("")) {
+					playerToUpdate.setName(playerToUpdate.getName());
 				}
+				if (playerToUpdate.getSurname() == null || playerToUpdate.getSurname().equals("")) {
+					playerToUpdate.setSurname(playerToUpdate.getSurname());
+				}
+				
+				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+				preparedStatement.setString(1, playerToUpdate.getPassword());
+				preparedStatement.setString(2, playerToUpdate.getPlayertype());
+				preparedStatement.setString(3, playerToUpdate.getName());
+				preparedStatement.setString(4, playerToUpdate.getSurname());
+				preparedStatement.setInt(5, playerToUpdate.getId());
+				preparedStatement.setInt(6, playerToUpdate.getIdcoach());
+				preparedStatement.setInt(7, playerToUpdate.getHeight());
+				preparedStatement.setInt(8, playerToUpdate.getAge());
+				preparedStatement.setInt(9, playerToUpdate.getPr());
+				preparedStatement.setInt(10, playerToUpdate.getGf());
+				preparedStatement.setInt(11, playerToUpdate.getGs());
+				preparedStatement.setInt(12, playerToUpdate.getMin());
+				preparedStatement.setDouble(13, playerToUpdate.getWeight());
+				preparedStatement.setDouble(14, playerToUpdate.getKmp());
+
+				int a = preparedStatement.executeUpdate();
+
+				if (a > 0)
+					return true;
+				else
+					return false;
+				
 			}catch (SQLException e) {
 				return false;
 			}
@@ -82,6 +109,7 @@ public class PlayerDAO /*implements DAO<Player>*/ {
 	@Override
 	public Player read(int id) {
 		// TODO Auto-generated method stub
+		//per poi adndare ad leggere tutta la lista
 		return null;
 	}
 
@@ -89,6 +117,26 @@ public class PlayerDAO /*implements DAO<Player>*/ {
 	@Override
 	public boolean insert(Player dto) {
 		// TODO Auto-generated method stub
+		
+		return false;
+	}
+
+
+
+	@Override
+	public boolean delete(int id) {
+		// TODO Auto-generated method stub
+		
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
+			preparedStatement.setInt(1, id);
+			int n = preparedStatement.executeUpdate();
+			if (n != 0)
+				return true;
+
+		} catch (SQLException e) {
+		}	
 		return false;
 	}
 
@@ -100,12 +148,4 @@ public class PlayerDAO /*implements DAO<Player>*/ {
 	}
 
 
-	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		
-		return false;
-	}
-
-*/
 }
