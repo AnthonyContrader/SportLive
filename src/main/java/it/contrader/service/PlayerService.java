@@ -9,7 +9,7 @@ import it.contrader.model.Player;
 public class PlayerService extends AbstractService<Player, PlayerDTO> {
 	
 	public PlayerService(){
-	this.dao = new PlayerDAO();
+		this.dao = new PlayerDAO();
 		this.converter = new PlayerConverter();
    }
 

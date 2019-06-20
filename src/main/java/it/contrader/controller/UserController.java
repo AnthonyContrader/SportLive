@@ -118,19 +118,19 @@ public class UserController implements Controller {
 			switch (choice.toUpperCase()) {
 			
 			case "L":
-				MainDispatcher.getInstance().callView(sub_package + "UserRead", null);
+				MainDispatcher.getInstance().callView(sub_package + "PlayerRead", null);
 				break;
 				
 			case "I":
-				MainDispatcher.getInstance().callView(sub_package + "UserInsert", null);
+				MainDispatcher.getInstance().callView(sub_package + "PlayerInsert", null);
 				break;
 				
 			case "M":
-				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
+				MainDispatcher.getInstance().callView(sub_package + "PlayerUpdate", null);
 				break;
 				
 			case "C":
-				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
+				MainDispatcher.getInstance().callView(sub_package + "PlayerDelete", null);
 				break;
 				
 			case "E":

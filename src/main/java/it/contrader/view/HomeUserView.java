@@ -42,6 +42,8 @@ public class HomeUserView extends AbstractView{
 			break;
 		case "a":
 			//TODO aggiungere un nuovo player
+			MainDispatcher.getInstance().callView("player.PlayerInsert",  null);
+
 			break;
 		case "g":
 			//TODO genera nuovo player

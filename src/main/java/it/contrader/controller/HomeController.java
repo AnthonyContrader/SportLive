@@ -34,7 +34,7 @@ public class HomeController implements Controller {
 				break;
 				
 			case "coach": 
-				MainDispatcher.getInstance().callView("HomeCoach", request);
+				MainDispatcher.getInstance().callView("HomeUser", request);
 				break;
 			
 			default:
