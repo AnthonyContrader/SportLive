@@ -78,7 +78,8 @@ public class PlayerController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "PlayerUpdate", request);
 			break;
 			
-		case "USERLIST":
+		case "PLAYERLIST":
+		
 			List<PlayerDTO> playersDTO = playerService.getAll();
 			request.put("players", playersDTO);
 			MainDispatcher.getInstance().callView("Player", request);

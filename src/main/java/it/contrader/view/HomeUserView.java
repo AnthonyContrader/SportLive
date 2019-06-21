@@ -43,7 +43,7 @@ public class HomeUserView extends AbstractView{
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
 		case "l":
-			request.put("mode", "READ");
+			request.put("mode", "PLAYERLIST");
 			MainDispatcher.getInstance().callAction("Player", "doControl", request);
 
 			//TODO visualizza lista player
