@@ -7,6 +7,8 @@ import it.contrader.main.MainDispatcher;
 public class HomeUserView extends AbstractView{
 
 	String choice;
+	
+	private Request request;
 
 	@Override
 	public void showResults(Request request) {
@@ -34,16 +36,18 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void submit() {
-
+		Request request = new Request();
 		switch (choice) {
 
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
 		case "a":
-			//TODO aggiungere un nuovo player
-			System.out.println("sono entrato ");
-			MainDispatcher.getInstance().callView("player.PlayerInsert",  null);
+			
+			System.out.println("sono qui!!");
+			this.request.put("mode", "INSERT");
+			MainDispatcher.getInstance().callAction("Player", "doControl", request);
+
 
 			break;
 		case "g":

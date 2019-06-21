@@ -122,7 +122,7 @@ public class UserController implements Controller {
 				break;
 				
 			case "I":
-				MainDispatcher.getInstance().callView(sub_package + "PlayerInsert", null);
+				MainDispatcher.getInstance().callView(sub_package + "UserInsert", null);
 				break;
 				
 			case "M":

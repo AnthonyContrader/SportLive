@@ -26,16 +26,7 @@ public class PlayerController implements Controller {
 		int idcoach;
 		String password;
 		String playertype;
-		String name;
-		String surname;
-		int height;
-		double weight;
-		int age;
-		int pr;
-		int gf;
-		int gs;
-		double kmp;
-		int min;
+		String nickname;
 
 		switch (mode) {
 
@@ -47,22 +38,15 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "INSERT":
+			System.out.println("sono qui!! 2");
 			id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
 			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();	
-			name = request.get("name").toString();
-			surname = request.get("surname").toString();
-		    height = Integer.parseInt(request.get("height").toString());
-			weight = Double.parseDouble(request.get ("weight").toString());
-			age = Integer.parseInt(request.get ("age").toString());
-			pr = Integer.parseInt(request.get("pr").toString());
-			gf = Integer.parseInt(request.get("gf").toString());
-			gs = Integer.parseInt(request.get("gs").toString());
-			kmp = Double.parseDouble(request.get("kmp").toString());
-			min = Integer.parseInt(request.get("min").toString());
+			nickname = request.get("nickname").toString();
+
 			
-			PlayerDTO playertoinsert = new PlayerDTO(id, idcoach, password, playertype, name, surname, height, weight, age, pr, gf, gs, kmp, min);
+			PlayerDTO playertoinsert = new PlayerDTO(id, idcoach, password, playertype, nickname);
 		    
 			playerService.insert(playertoinsert);
 			request = new Request();
@@ -84,17 +68,9 @@ public class PlayerController implements Controller {
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
 			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();
-			name = request.get("name").toString();
-			surname = request.get("surname").toString();
-			height = Integer.parseInt(request.get("height").toString());
-			weight = Double.parseDouble(request.get("weight").toString());
-			age = Integer.parseInt(request.get("age").toString());
-			pr = Integer.parseInt(request.get("pr").toString());
-			gf = Integer.parseInt(request.get("gf").toString());
-			gs = Integer.parseInt(request.get("gs").toString());
-			kmp = Double.parseDouble(request.get("kmp").toString());
-			min = Integer.parseInt(request.get("min").toString());
-			PlayerDTO playertoupdate = new PlayerDTO(id, idcoach, password, playertype, name, surname, height, weight, age, pr, gf, gs, kmp, min);
+			nickname = request.get("nickname").toString();
+
+			PlayerDTO playertoupdate = new PlayerDTO(id, idcoach, password, playertype, nickname);
 			playertoupdate.setId(id);
 			playerService.update(playertoupdate);
 			request = new Request();
