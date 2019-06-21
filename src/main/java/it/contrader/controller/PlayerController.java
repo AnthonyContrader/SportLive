@@ -38,11 +38,10 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "INSERT":
-			System.out.println("sono qui!! 2");
 			id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
-			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();	
+			password = request.get("password").toString();
 			nickname = request.get("nickname").toString();
 
 			

@@ -15,9 +15,9 @@ public class PlayerView extends AbstractView{
 	
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------- Gestione player ----------------\n");
-			System.out.println("ID\tUsername\tPassword\tTipo player");
-			System.out.println("----------------------------------------------------\n");
+			System.out.println("\n----------------------------------------- Gestione player --------------------------\n");
+			System.out.println("ID\tIDCoach\t\tPlayerType\tPassword\t\tNickName");
+			System.out.println("--------------------------------------------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
 			List<PlayerDTO> players = (List<PlayerDTO>) request.get("players");

@@ -16,8 +16,7 @@ public class Player {
 		
 	}
 	
-	public Player (int id, int idcoach, String password, String playertype, String nickname) {
-		this.id = id;
+	public Player (int idcoach,  String playertype, String password, String nickname) {
 		this.idcoach = idcoach;
 		this.password = password;
 		this.playertype = playertype;

@@ -6,6 +6,8 @@ import it.contrader.view.AbstractView;
 
 public class PlayerUpdateView extends AbstractView {
 		private Request request;
+		
+		private int id;
 		private int idcoach;
 		private String password;
 		private String playertype;
@@ -21,9 +23,11 @@ public class PlayerUpdateView extends AbstractView {
 				MainDispatcher.getInstance().callView("Player", null);
 		}
 }		
-		
+		@Override
 		public void showOptions() {
 			try {
+				System.out.println("Inserire id del giocatore: ");
+				id = Integer.parseInt(getInput());
 				System.out.println("Inserisci id del coach:");
 				idcoach = Integer.parseInt(getInput());
 				System.out.println("Inserisci password del giocatore:");
@@ -34,15 +38,15 @@ public class PlayerUpdateView extends AbstractView {
 				nickname = getInput();
 				
 			} catch (Exception e) {
-
 			}
 		}
 		
 		public void submit() {
 			request = new Request();
+			request.put("id", id);
 			request.put("idcoach", idcoach);
+			request.put("playertype", playertype);
 			request.put("password", password);
-			request.put("playetype", playertype);
 			request.put ("nickname", nickname);
 			request.put("mode", mode);
 			MainDispatcher.getInstance().callAction("Player", "doControl", request);
