@@ -7,24 +7,14 @@ import it.contrader.main.MainDispatcher;
 
 
 public class PlayerInsertView {
-	
+	private int idcoach;
 	private Request request;
 	private String password;
 	private String playertype;
-	private String name;
-	private String surname;
-	private int idcoach;
-	private int height;			//altezza
-	private int age;			//eta
-	private int pr;				//passaggi rusciti
-	private int gf;				//gol fatti
-	private int gs;				//gol subiti
-	private int min;			//minuti di gioco
-	private double weight;		//peso in kg
-	private double kmp;			//chilometri percorsi
+	private String nickname;
+	
 	
 	private final String mode = "INSERT";
-	
 	private Scanner scanner;
 	private Scanner intScanner;
 	private Scanner doubleScanner;
@@ -45,27 +35,8 @@ public class PlayerInsertView {
 		password = getInput();
 		System.out.println("Inserisci tipo di giocatore:");
 		playertype = getInput();
-		System.out.println("Inserire nome del giocatore:");
-		name = getInput();
-		System.out.println("Inserire cognome giocatore:");
-		surname = getInput();
-		System.out.println("Inserire altezza del giocatore:");
-		height = getInt();
-		System.out.println("Inserire peso del giocatore:");
-		weight = getDouble();
-		System.out.println("Inserire età del giocatore:");
-		age = getInt();
-		System.out.println("/n/nInserimento dati statistici/n/n");
-		System.out.println("Inserire passaggi riusciti del giocatore:");
-		pr = getInt();
-		System.out.println("Inserire gol fatti dal giocatore:");
-		gf = getInt();
-		System.out.println("Inserire gol subiti del giocatore:");
-		gs = getInt();
-		System.out.println("Inserire km percorsi dal giocatore:");
-		kmp = getDouble();
-		System.out.println("Inserire minuti di gioco:");
-		min = getInt();
+		System.out.println("Inserire nickname del giocatore:");
+		nickname = getInput();
 
 }
 
@@ -87,17 +58,8 @@ public class PlayerInsertView {
 		request = new Request();
 		request.put("idcoach", idcoach);
 		request.put("password", password);
-		request.put("name",name);
-		request.put("surname", surname);
-		request.put("age", age);
-		request.put("height", height);
-		request.put("weight", weight);
-		request.put("pr", pr);
-		request.put("gf", gf);
-		request.put("gs", gs);
-		request.put("kmp", kmp);
-		request.put("min", min);
-		request.put("mode", mode);
+		request.put("nickname",nickname);
+		
 		MainDispatcher.getInstance().callAction("Player", "doControl", request);
 
 		
