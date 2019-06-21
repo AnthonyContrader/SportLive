@@ -9,10 +9,11 @@ import it.contrader.main.MainDispatcher;
 public class PlayerInsertView {
 	
 	private Request request;
-	private String username;	
 	private String password;
+	private String playertype;
 	private String name;
 	private String surname;
+	private int idcoach;
 	private int height;			//altezza
 	private int age;			//eta
 	private int pr;				//passaggi rusciti
@@ -38,20 +39,22 @@ public class PlayerInsertView {
 		}
 	}
 	public void showOptions() {
-		System.out.println("Inserisci username del giocatore:");
-		username = getInput();
+		System.out.println("Inserisci id del coach:");
+		idcoach = getInt();
 		System.out.println("Inserisci password del giocatore:");
 		password = getInput();
+		System.out.println("Inserisci tipo di giocatore:");
+		playertype = getInput();
 		System.out.println("Inserire nome del giocatore:");
 		name = getInput();
 		System.out.println("Inserire cognome giocatore:");
 		surname = getInput();
-		System.out.println("Inserire eta giocatore:");
-		age = getInt();
-		System.out.println("Inserire altezza giocatore:");
+		System.out.println("Inserire altezza del giocatore:");
 		height = getInt();
-		System.out.println("Inserire perso del giocatore:");
+		System.out.println("Inserire peso del giocatore:");
 		weight = getDouble();
+		System.out.println("Inserire età del giocatore:");
+		age = getInt();
 		System.out.println("/n/nInserimento dati statistici/n/n");
 		System.out.println("Inserire passaggi riusciti del giocatore:");
 		pr = getInt();
@@ -82,7 +85,7 @@ public class PlayerInsertView {
 	
 	public void submit() {
 		request = new Request();
-		request.put("username", username);
+		request.put("idcoach", idcoach);
 		request.put("password", password);
 		request.put("name",name);
 		request.put("surname", surname);
