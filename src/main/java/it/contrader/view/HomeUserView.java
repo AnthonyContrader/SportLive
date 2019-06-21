@@ -19,7 +19,7 @@ public class HomeUserView extends AbstractView{
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("[L] Player list [A] Add new player [G] Generate the team [E] Exit");
+		System.out.println("[L] Player list [E] Exit");
 		choice = this.getInput();
 		
 		/**
@@ -42,18 +42,10 @@ public class HomeUserView extends AbstractView{
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;
-		case "a":
-			
-			System.out.println("sono qui!!");
-			this.request.put("mode", "INSERT");
+		case "l":
+			request.put("mode", "READ");
 			MainDispatcher.getInstance().callAction("Player", "doControl", request);
 
-
-			break;
-		case "g":
-			//TODO genera nuovo player
-			break;
-		case "l":
 			//TODO visualizza lista player
 
 		default:

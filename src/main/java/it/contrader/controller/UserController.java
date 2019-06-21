@@ -118,7 +118,7 @@ public class UserController implements Controller {
 			switch (choice.toUpperCase()) {
 			
 			case "L":
-				MainDispatcher.getInstance().callView(sub_package + "PlayerRead", null);
+				MainDispatcher.getInstance().callView(sub_package + "UserRead", null);
 				break;
 				
 			case "I":
@@ -126,11 +126,11 @@ public class UserController implements Controller {
 				break;
 				
 			case "M":
-				MainDispatcher.getInstance().callView(sub_package + "PlayerUpdate", null);
+				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
 				break;
 				
 			case "C":
-				MainDispatcher.getInstance().callView(sub_package + "PlayerDelete", null);
+				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
 				break;
 				
 			case "E":
