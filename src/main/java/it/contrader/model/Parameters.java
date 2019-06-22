@@ -6,28 +6,28 @@ private int id;
 	
 	private int idplayer;
 	
-	private int Age;
+	private int age;
 	
-	private double Weight;
+	private double weight;
 	
-	private int Height;
+	private int height;
 	
-	private int GP;
+	private int gp;
 	
-	private int Score;
+	private int score;
 	 
 	public Parameters () {
 		
 	}
 
-	public Parameters (int id, int idplayer, int Age, double Weight, int Height, int GP, int Score) {
+	public Parameters (int id, int idplayer, int age, double weight, int height, int gp, int score) {
 			this.id = id;
 			this.idplayer = idplayer;
-			this.Age = Age;
-			this.Weight = Weight;
-			this.Height = Height;
-			this.GP = GP;
-			this.Score = Score;
+			this.age = age;
+			this.weight = weight;
+			this.height = height;
+			this.gp = gp;
+			this.score = score;
 			
 	}
 
@@ -46,52 +46,79 @@ private int id;
 		this.idplayer = idplayer;
 	}
 
-	public int getAge() {
-		return Age;
+	public int getage() {
+		return age;
 	}
 
-	public void setAge(int Age) {
-		this.Age = Age;
+	public void setage(int age) {
+		this.age = age;
 	}
 
-	public double getWeight() {
-		return Weight;
+	public double getweight() {
+		return weight;
 	}
 
-	public void setWeight(double Weight) {
-		this.Weight = Weight;
+	public void setweight(double weight) {
+		this.weight = weight;
 	}
 
-	public int getHeight() {
-		return Height;
+	public int getheight() {
+		return height;
 	}
 
-	public void setHeight(int Height) {
-		this.Height = Height;
+	public void setheight(int height) {
+		this.height = height;
 	}
 
-	public int getGP() {
-		return GP;
+	public int getgp() {
+		return gp;
 	}
 
-	public void setGP(int GP) {
-		this.GP = GP;
+	public void setgp(int gp) {
+		this.gp = gp;
 	}
 	
-	public int getScore() {
-		return Score;
+	public int getscore() {
+		return score;
 	}
 
-	public void setScore(int Score) {
-		this.Score = Score;
+	public void setscore(int score) {
+		this.score = score;
 	}
 
 	public String toString() {
-		return  id + "\t"  + idplayer +"\t\t" + Age + "\t\t" +  Weight + "\t\t" + Height + "\t\t"+ GP + "\t\t" + Score;
+		return  id + "\t"  + idplayer +"\t\t" + age + "\t\t" +  weight + "\t\t" + height + "\t\t"+ gp + "\t\t" + score;
 		
 	}
 	
 	
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+        Parameters other = (Parameters) obj;
+		if (id != other.id)
+			return false;
+		if (idplayer != other.idplayer)
+			return false;
+		if (age != other.age) 
+			return false;
+		if (height != other.height) 
+			return false;
+		if (weight != other.weight) 
+			return false;	
+		if (gp != other.gp) 
+			return false;
+	    if (score != other.score) 
+			return false;		
+		return true;
+	}
 }
+
+	
+
 
 	
