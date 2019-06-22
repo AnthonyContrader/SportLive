@@ -31,7 +31,7 @@ private int id;
 			
 	}
 
-	public int getid( ) {
+	public int getId( ) {
 		return id;
 	}
 	public void setId(int id) {
@@ -46,43 +46,43 @@ private int id;
 		this.idplayer = idplayer;
 	}
 
-	public int getage() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setage(int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public double getweight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setweight(double weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
-	public int getheight() {
+	public int getHeight() {
 		return height;
 	}
 
-	public void setheight(int height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	public int getgp() {
+	public int getGp() {
 		return gp;
 	}
 
-	public void setgp(int gp) {
+	public void setGp(int gp) {
 		this.gp = gp;
 	}
 	
-	public int getscore() {
+	public int getScore() {
 		return score;
 	}
 
-	public void setscore(int score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 
