@@ -115,7 +115,7 @@ public class Player {
 		return score;
 	}
 	
-	public void set(int score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 	@Override

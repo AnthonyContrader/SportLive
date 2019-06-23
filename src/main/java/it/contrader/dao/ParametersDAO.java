@@ -11,8 +11,9 @@ public class ParametersDAO implements DAO<Parameters> {
 	private final String QUERY_ALL = "SELECT * FROM parameters";
 	private final String QUERY_CREATE = "INSERT INTO parameters (idplayer, age, height, weight, gp, score) VALUES (?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM parameters WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE parameters SET idplayer=?, age=?, height=?, weight=?, gp=?, score=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM parameters WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE players SET idplayer=?, age=?, height=?, weight=?, gp=?, score=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM players WHERE id=?";
+
 
 	public List<Parameters> getAll() {
 
@@ -23,13 +24,13 @@ public class ParametersDAO implements DAO<Parameters> {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Parameters parameters;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id"); // identificazione
-				int idplayer = resultSet.getInt("idplayer"); // id di identificazione del player nella tabella
-				int age = resultSet.getInt("age"); // età
-				int height = resultSet.getInt("height"); // altezza
-				double weight = resultSet.getInt("weight"); // peso
-				int gp = resultSet.getInt("gp"); // partite giocate
-				int score = resultSet.getInt("score"); // valutazione
+				int id = resultSet.getInt("id"); 				// identificazione
+				int idplayer = resultSet.getInt("idplayer"); 	// id di identificazione del player nella tabella
+				int age = resultSet.getInt("age"); 				// età
+				int height = resultSet.getInt("height"); 		// altezza
+				double weight = resultSet.getInt("weight"); 	// peso
+				int gp = resultSet.getInt("gp"); 				// partite giocate
+				int score = resultSet.getInt("score"); 			// valutazione
 				
 				parameters = new Parameters(id, idplayer, age, height, (int) weight, gp, score);
 				parameters.setId(id);
