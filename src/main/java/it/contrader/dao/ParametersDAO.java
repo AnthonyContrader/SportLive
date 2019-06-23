@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Parameters;
-import it.contrader.model.Player;
 
 public class ParametersDAO implements DAO<Parameters> {
 	
 	private final String QUERY_ALL = "SELECT * FROM parameters";
-	private final String QUERY_CREATE = "INSERT INTO parameters (idplayer, age, height, weight, gp, score) VALUES (?,?,?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO parameters (idplayer, age, height, weight, gp, score) VALUES (?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM parameters WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE parameters SET idplayer=?, age=?, height=?, weight=?, gp=?, score=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM parameters WHERE id=?";

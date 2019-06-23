@@ -25,7 +25,7 @@ public class PlayerDAO implements DAO<Player> {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id"); 						// identificazione univoca del player nella tabella
 				int idcoach = resultSet.getInt("idcoach"); 				// id di identificazione del coach a cui appartiene
-				String playertype = resultSet.getString("playertype"); 	// attacante, centr, dif, portiere
+				String playertype = resultSet.getString("playertype"); 	// attaccante, centr, dif, portiere
 				String password = resultSet.getString("password"); 		// password
 				String nickname = resultSet.getString("nickname"); 		// ...
 
