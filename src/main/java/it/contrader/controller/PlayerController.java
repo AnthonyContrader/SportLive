@@ -27,6 +27,11 @@ public class PlayerController implements Controller {
 		String password;
 		String playertype;
 		String nickname;
+		int age;
+		int height;
+		double weight;
+		int gp;
+		int score;
 
 		switch (mode) {
 
@@ -38,14 +43,18 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "INSERT":
-			//id = Integer.parseInt(request.get("id").toString());
+			id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
 			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();
 			nickname = request.get("nickname").toString();
-
+			age = Integer.parseInt(request.get("age").toString());
+			height = Integer.parseInt(request.get("height").toString());
+			weight = Double.parseDouble(request.get("weight").toString());
+			gp = Integer.parseInt(request.get("gp").toString());
+			score = Integer.parseInt(request.get("score").toString());
 			
-			PlayerDTO playertoinsert = new PlayerDTO(idcoach, password, playertype, nickname);
+			PlayerDTO playertoinsert = new PlayerDTO(idcoach, password, playertype, nickname, age, height, weight, gp, score);
 		    
 			playerService.insert(playertoinsert);
 			request = new Request();
@@ -69,8 +78,13 @@ public class PlayerController implements Controller {
 			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();
 			nickname = request.get("nickname").toString();
+			age = Integer.parseInt(request.get("age").toString());
+			height = Integer.parseInt(request.get("height").toString());
+			weight = Double.parseDouble(request.get("weight").toString());
+			gp = Integer.parseInt(request.get("gp").toString());
+			score = Integer.parseInt(request.get("score").toString());
 
-			PlayerDTO playertoupdate = new PlayerDTO(id, idcoach, password, playertype, nickname);
+			PlayerDTO playertoupdate = new PlayerDTO(id, idcoach, password, playertype, nickname, age, height, weight, gp, score);
 			playertoupdate.setId(id);
 			playerService.update(playertoupdate);
 			request = new Request();
