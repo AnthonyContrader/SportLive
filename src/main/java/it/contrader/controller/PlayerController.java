@@ -38,14 +38,14 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "INSERT":
-			id = Integer.parseInt(request.get("id").toString());
+			//id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
-			playertype = request.get("playertype").toString();	
 			password = request.get("password").toString();
+			playertype = request.get("playertype").toString();
 			nickname = request.get("nickname").toString();
 
 			
-			PlayerDTO playertoinsert = new PlayerDTO(id, idcoach, password, playertype, nickname);
+			PlayerDTO playertoinsert = new PlayerDTO(idcoach, password, playertype, nickname);
 		    
 			playerService.insert(playertoinsert);
 			request = new Request();
@@ -55,6 +55,7 @@ public class PlayerController implements Controller {
 			
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
+			
 		    playerService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");

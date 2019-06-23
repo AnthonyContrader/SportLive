@@ -17,13 +17,20 @@ public class PlayerDTO {
 	public PlayerDTO() {
 	}
 	
+	public PlayerDTO (int idcoach, String password, String playertype, String nickname) {
+		this.idcoach = idcoach;
+		this.password = password;
+		this.playertype = playertype;
+		this.nickname = nickname;
+		
+	}
+	
 	public PlayerDTO (int id, int idcoach, String password, String playertype, String nickname) {
 		this.id = id;
 		this.idcoach = idcoach;
 		this.password = password;
 		this.playertype = playertype;
 		this.nickname = nickname;
-		
 	}
 
 	public int getId() {

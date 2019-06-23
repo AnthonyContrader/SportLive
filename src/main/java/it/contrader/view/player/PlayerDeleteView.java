@@ -1,5 +1,7 @@
 package it.contrader.view.player;
 
+import java.util.Scanner;
+
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
@@ -8,8 +10,13 @@ public class PlayerDeleteView extends AbstractView {
 	private Request request;
 	
 	private int id;
-	private int idcoach;
+	private Scanner intScanner;
 	private final String mode = "DELETE";
+	
+	private int getInt() {
+		intScanner = new Scanner(System.in);
+		return intScanner.nextInt();
+	}
 	
 	public PlayerDeleteView() {
 	}
@@ -22,7 +29,7 @@ public class PlayerDeleteView extends AbstractView {
 }
 	public void showOptions() {
 		System.out.println("Inserisci id dell'utente:");
-		id = Integer.parseInt(getInput());
+		id = getInt();
 	}
 
 	
@@ -31,7 +38,6 @@ public class PlayerDeleteView extends AbstractView {
 		public void submit() {
 			request = new Request();
 			request.put("id", id);
-			request.put("idcoach", idcoach);
 			request.put("mode", mode);
 			MainDispatcher.getInstance().callAction("Player", "doControl", request);
 		}		
