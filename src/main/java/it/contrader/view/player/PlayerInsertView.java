@@ -43,6 +43,7 @@ public class PlayerInsertView extends AbstractView{
 		intScanner = new Scanner(System.in);
 		return intScanner.nextInt();
 	}
+	
 	public String getInput() {
 		scanner = new Scanner(System.in);
 		return scanner.nextLine();
@@ -51,12 +52,10 @@ public class PlayerInsertView extends AbstractView{
 	public void submit() {
 		request = new Request();
 		request.put("idcoach", idcoach);
-		request.put("palyertype", playertype);
+		request.put("playertype", playertype);
 		request.put("password", password);
 		request.put("nickname",nickname);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("Player", "doControl", request);
-
-		
+		MainDispatcher.getInstance().callAction("Player", "doControl", request);	
 	}
 }

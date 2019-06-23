@@ -128,12 +128,15 @@ public class UserDAO implements DAO<User> {
 		return false;
 
 	}
-
+	
+	@Override
 	public boolean delete(int id) {
+		
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
 			preparedStatement.setInt(1, id);
+			
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
@@ -142,6 +145,4 @@ public class UserDAO implements DAO<User> {
 		}
 		return false;
 	}
-
-
 }

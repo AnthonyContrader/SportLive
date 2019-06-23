@@ -12,7 +12,7 @@ public class PlayerDAO implements DAO<Player> {
 	private final String QUERY_CREATE = "INSERT INTO players (idcoach, playertype, password, nickname) VALUES (?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM players WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE players SET  idcoach=?, playertype=?, password=?, nickname=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM players WHERE id=? AND idcoach=?";
+	private final String QUERY_DELETE = "DELETE FROM players WHERE id=?";
 
 	public List<Player> getAll() {
 
@@ -23,11 +23,11 @@ public class PlayerDAO implements DAO<Player> {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Player player;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id"); // identificazione univoca del player nella tabella
-				int idcoach = resultSet.getInt("idcoach"); // id di identificazione del coach a cui appartiene
-				String playertype = resultSet.getString("playertype"); // attacante, centr, dif, portiere
-				String password = resultSet.getString("password"); // password
-				String nickname = resultSet.getString("nickname"); // ...
+				int id = resultSet.getInt("id"); 						// identificazione univoca del player nella tabella
+				int idcoach = resultSet.getInt("idcoach"); 				// id di identificazione del coach a cui appartiene
+				String playertype = resultSet.getString("playertype"); 	// attacante, centr, dif, portiere
+				String password = resultSet.getString("password"); 		// password
+				String nickname = resultSet.getString("nickname"); 		// ...
 
 				player = new Player(idcoach, playertype, password, nickname);
 				player.setId(id);
@@ -109,20 +109,36 @@ public class PlayerDAO implements DAO<Player> {
 	}
 
 	@Override
-	public boolean insert(Player dto) {
-		// TODO Auto-generated method stub
+	public boolean insert(Player playerToInsert) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
+			
+			preparedStatement.setInt(1, playerToInsert.getIdcoach());
+			preparedStatement.setString(2, playerToInsert.getPlayertype());
+			preparedStatement.setString(3, playerToInsert.getPassword());
+			preparedStatement.setString(4, playerToInsert.getNickname());
 
-		return false;
+			int a = preparedStatement.executeUpdate();
+
+			if (a > 0)
+				return true;
+			else
+				return false;
+			
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
 
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
 			preparedStatement.setInt(1, id);
+			
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
