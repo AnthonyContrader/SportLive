@@ -7,8 +7,6 @@ import it.contrader.main.MainDispatcher;
 public class HomeUserView extends AbstractView{
 
 	String choice;
-	
-	private Request request;
 
 	@Override
 	public void showResults(Request request) {

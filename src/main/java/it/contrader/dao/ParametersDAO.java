@@ -128,10 +128,33 @@ public class ParametersDAO implements DAO<Parameters> {
 	}
 
 	@Override
-	public boolean insert(Parameters dto) {
-		// TODO Auto-generated method stub
+	public boolean insert(Parameters parametersToInsert) {
+		
+		Connection connection = ConnectionSingleton.getInstance();
 
-		return false;
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
+			
+			preparedStatement.setInt(1, parametersToInsert.getIdplayer());
+			preparedStatement.setInt(2, parametersToInsert.getAge());
+			preparedStatement.setInt(3, parametersToInsert.getHeight());
+			preparedStatement.setDouble(4, parametersToInsert.getWeight());
+			preparedStatement.setInt(5, parametersToInsert.getGp());
+			preparedStatement.setInt(6, parametersToInsert.getScore());
+
+
+			int a = preparedStatement.executeUpdate();
+
+			if (a > 0)
+				return true;
+			else
+				return false;
+			
+		} catch (SQLException e) {
+			return false;
+		}
+
+	
 	}
 
 	@Override

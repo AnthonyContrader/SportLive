@@ -5,7 +5,7 @@ import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
 public class PlayerUpdateView extends AbstractView {
-		private Request request;
+	private Request request;
 		
 		private int id;
 		private int idcoach;

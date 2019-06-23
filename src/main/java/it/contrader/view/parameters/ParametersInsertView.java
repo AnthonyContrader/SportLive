@@ -1,8 +1,6 @@
 package it.contrader.view.parameters;
 
-	import java.util.Scanner;
-
-import it.contrader.controller.Request;
+	import it.contrader.controller.Request;
 	import it.contrader.main.MainDispatcher;
 	import it.contrader.view.AbstractView;
 
@@ -16,20 +14,7 @@ import it.contrader.controller.Request;
 		private int gp;
 		private int score;
 		private final String mode = "INSERT";
-		
-		private Scanner scanner;
-		private Scanner intScanner;
-		private Scanner doubleScanner;
-		
-		
-		private double getDouble() {
-		
-		doubleScanner = new Scanner(System.in);
-		return doubleScanner.nextDouble();
 
-		}
-
-		
 		public ParametersInsertView() {
 		}
 	
@@ -57,14 +42,6 @@ import it.contrader.controller.Request;
 				
 		}
 
-		private int getInt() {
-			intScanner = new Scanner(System.in);
-			return intScanner.nextInt();
-		}
-		public String getInput() {
-			scanner = new Scanner(System.in);
-			return scanner.nextLine();
-		}
 		
 		public void submit() {
 			request = new Request();

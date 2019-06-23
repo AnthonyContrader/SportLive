@@ -1,7 +1,5 @@
 package it.contrader.view.player;
 
-import java.util.Scanner;
-
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
@@ -15,10 +13,7 @@ public class PlayerInsertView extends AbstractView{
 	private String password;
 	private String nickname;
 	private final String mode = "INSERT";
-	
-	private Scanner scanner;
-	private Scanner intScanner;
-	
+
 	public PlayerInsertView() {
 	}
 	
@@ -38,16 +33,6 @@ public class PlayerInsertView extends AbstractView{
 		System.out.println("Inserire nickname del giocatore:");
 		nickname = getInput();
 }
-
-	private int getInt() {
-		intScanner = new Scanner(System.in);
-		return intScanner.nextInt();
-	}
-	
-	public String getInput() {
-		scanner = new Scanner(System.in);
-		return scanner.nextLine();
-	}
 	
 	public void submit() {
 		request = new Request();
