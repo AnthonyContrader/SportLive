@@ -9,13 +9,13 @@ public class PlayerConverter implements Converter<Player, PlayerDTO> {
 
 	public PlayerDTO toDTO(Player player) {
 		PlayerDTO playerDTO = new PlayerDTO(player.getId(), player.getIdcoach(), player.getPassword(),
-				player.getPlayertype(), player.getNickname());
+				player.getPlayertype(), player.getNickname(), player.getAge(), player.getHeight(), player.getWeight(), player.getGp(), player.getScore());
 		return playerDTO;
 	}
 
 	public Player toEntity(PlayerDTO playerDTO) {
 		Player player = new Player(playerDTO.getIdcoach(), playerDTO.getPlayertype(), playerDTO.getPassword(),
-				playerDTO.getnickname());
+				playerDTO.getNickname(), playerDTO.getAge(), playerDTO.getHeight(), playerDTO.getWeight(), playerDTO.getGp(), playerDTO.getScore());
 		player.setId(playerDTO.getId());
 		return player;
 	}

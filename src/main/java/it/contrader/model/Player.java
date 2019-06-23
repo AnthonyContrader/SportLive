@@ -27,7 +27,7 @@ public class Player {
 	public Player () {
 		
 	}
-	 Player (int idcoach, String playertype, String password, String nickname, int age, int height, double weight, int gp, int score) {
+	 public Player (int idcoach, String playertype, String password, String nickname, int age, int height, double weight, int gp, int score) {
 		this.idcoach = idcoach;
 		this.password = password;
 		this.playertype = playertype;
@@ -107,7 +107,7 @@ public class Player {
 		return gp;
 	}
 	
-	public void setGp(int height) {
+	public void setGp(int gp) {
 		this.gp = gp;
 	}
 	
