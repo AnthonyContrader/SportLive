@@ -12,6 +12,12 @@ public class PlayerUpdateView extends AbstractView {
 		private String password;
 		private String playertype;
 		private String nickname;
+		private int age;
+		private int height;
+		private double weight;
+		private int gp;
+		private int score;
+		
 		private final String mode = "UPDATE";
 
 		public PlayerUpdateView() {
@@ -36,6 +42,16 @@ public class PlayerUpdateView extends AbstractView {
 				playertype = getInput();
 				System.out.println("Inserisci nickname del giocatore:");
 				nickname = getInput();
+				System.out.println("Inserisci l'eta:");
+				age = getInt();
+				System.out.println("Inserisci l'altezza:");
+				height = getInt();
+				System.out.println("Inserirci il peso:");
+				weight = getDouble();
+				System.out.println("inserire partitte giocate:");
+				gp = getInt();
+				
+				score = age * gp;
 				
 			} catch (Exception e) {
 			}
@@ -48,6 +64,11 @@ public class PlayerUpdateView extends AbstractView {
 			request.put("playertype", playertype);
 			request.put("password", password);
 			request.put ("nickname", nickname);
+			request.put("age", age);
+			request.put("height", height);
+			request.put("weight", weight);
+			request.put("gp", gp);
+			request.put("score", score);
 			request.put("mode", mode);
 			MainDispatcher.getInstance().callAction("Player", "doControl", request);
 		}

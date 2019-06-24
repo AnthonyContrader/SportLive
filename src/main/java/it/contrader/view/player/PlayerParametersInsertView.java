@@ -14,7 +14,7 @@ public class PlayerParametersInsertView extends AbstractView {
 	private int gp;
 	private int score;
 	
-	private final String mode = "INSER_ONLY_PARAMETERS";
+	private final String mode = "UPDATE_ONLY_PARAMETERS";
 	
 	public PlayerParametersInsertView() {
 	}
@@ -36,7 +36,7 @@ public class PlayerParametersInsertView extends AbstractView {
 		System.out.println("inserire partitte giocate:");
 		gp = getInt();
 		
-		
+		score = age * gp;
 	}
 
 	@Override

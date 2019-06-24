@@ -9,18 +9,19 @@ import it.contrader.model.Player;
 public class PlayerDAO implements DAO<Player> {
 
 	private final String QUERY_ALL = "SELECT * FROM players";
-	private final String QUERY_CREATE = "INSERT INTO players (idcoach, playertype, password, nickname) VALUES (?,?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO players (idcoach, playertype, password, nickname, age, height, weight, gp, score) VALUES (?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM players WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE players SET  idcoach=?, playertype=?, password=?, nckname=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE players SET  idcoach=?, playertype=?, password=?, nickname=? , age=?, height=?, weight=?, gp=?, score=? WHERE id=?";
 	private final String QUERY_UPDATE_PARAMETERS = "UPDATE players SET age=?, height=?, weight=?, gp=?, score=?";
 	private final String QUERY_DELETE = "DELETE FROM players WHERE id=?";
-	//private final String QUERY_ORDER = "";
+	private final String QUERY_ORDER = "";
 
 	public List<Player> getAll() {
 
 		List<Player> playerList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
+			
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Player player;
@@ -66,20 +67,43 @@ public class PlayerDAO implements DAO<Player> {
 				if (playerToUpdate.getNickname() == null || playerToUpdate.getNickname().equals("")) {
 					playerToUpdate.setNickname(playerToUpdate.getNickname());
 				}
-
+				if (playerToUpdate.getAge() == 0 || playerToUpdate.getAge() == 0) {
+					playerToUpdate.setAge(playerToUpdate.getAge());
+				}
+				if (playerToUpdate.getHeight() == 0 || playerToUpdate.getHeight() == 0) {
+					playerToUpdate.setHeight(playerToUpdate.getHeight());
+				}
+				if (playerToUpdate.getWeight() == 0 || playerToUpdate.getWeight() == 0) {
+					playerToUpdate.setWeight(playerToUpdate.getWeight());
+				}				
+				if (playerToUpdate.getGp() == 0 || playerToUpdate.getGp() == 0) {
+					playerToUpdate.setGp(playerToUpdate.getGp());
+				}
+				if (playerToUpdate.getScore() == 0 || playerToUpdate.getScore() == 0) {
+					playerToUpdate.setScore(playerToUpdate.getScore());
+				}
+				
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 
 				preparedStatement.setInt(1, playerToUpdate.getIdcoach());
 				preparedStatement.setString(2, playerToUpdate.getPlayertype());
 				preparedStatement.setString(3, playerToUpdate.getPassword());
 				preparedStatement.setString(4, playerToUpdate.getNickname());
-				preparedStatement.setInt(5, playerToUpdate.getId());
+				preparedStatement.setInt(5, playerToUpdate.getAge());
+				preparedStatement.setInt(6, playerToUpdate.getHeight());
+				preparedStatement.setDouble(7, playerToUpdate.getWeight());
+				preparedStatement.setInt(8, playerToUpdate.getGp());
+				preparedStatement.setInt(9, playerToUpdate.getScore());
 				
+				preparedStatement.setInt(10, playerToUpdate.getId());
+
+			
 				int a = preparedStatement.executeUpdate();
 
 				if (a > 0)
 					return true;
 				else
+				
 					return false;
 
 			} catch (SQLException e) {
@@ -157,7 +181,7 @@ public class PlayerDAO implements DAO<Player> {
 			password = resultSet.getString("password");
 			nickname = resultSet.getString("nickname");
 			age = resultSet.getInt("age");
-			height = resultSet.getInt("heigt");
+			height = resultSet.getInt("height");
 			weight = resultSet.getDouble("weight");
 			gp = resultSet.getInt("gp");
 			score = resultSet.getInt("score");
@@ -182,6 +206,12 @@ public class PlayerDAO implements DAO<Player> {
 			preparedStatement.setString(2, playerToInsert.getPlayertype());
 			preparedStatement.setString(3, playerToInsert.getPassword());
 			preparedStatement.setString(4, playerToInsert.getNickname());
+			preparedStatement.setInt(5, playerToInsert.getAge());
+			preparedStatement.setInt(6, playerToInsert.getHeight());
+			preparedStatement.setDouble(7, playerToInsert.getWeight());
+			preparedStatement.setInt(8, playerToInsert.getGp());
+			preparedStatement.setInt(9, playerToInsert.getScore());
+
 
 			int a = preparedStatement.executeUpdate();
 

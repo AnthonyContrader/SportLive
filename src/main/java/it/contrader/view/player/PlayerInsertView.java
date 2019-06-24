@@ -46,6 +46,8 @@ public class PlayerInsertView extends AbstractView{
 		weight = getDouble();
 		System.out.println("Inserisci numero di partite giocate dal giocatore:");
 		gp = getInt();
+		
+		score = age * gp;
 
 }
 	

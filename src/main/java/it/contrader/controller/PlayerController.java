@@ -43,7 +43,7 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "INSERT":
-			id = Integer.parseInt(request.get("id").toString());
+			//id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
 			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();
@@ -84,7 +84,7 @@ public class PlayerController implements Controller {
 			gp = Integer.parseInt(request.get("gp").toString());
 			score = Integer.parseInt(request.get("score").toString());
 
-			PlayerDTO playertoupdate = new PlayerDTO(id, idcoach, password, playertype, nickname, age, height, weight, gp, score);
+			PlayerDTO playertoupdate = new PlayerDTO(idcoach, password, playertype, nickname, age, height, weight, gp, score);
 			playertoupdate.setId(id);
 			playerService.update(playertoupdate);
 			request = new Request();
