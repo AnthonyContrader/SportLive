@@ -20,8 +20,8 @@ public class PlayerView extends AbstractView{
 			System.out.println("--------------------------------------------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<PlayerDTO> players = (List<PlayerDTO>) request.get("players");
-			for (PlayerDTO u: players)
+			List<PlayerDTO> player = (List<PlayerDTO>) request.get("players");
+			for (PlayerDTO u: player)
 				System.out.println(u);
 			System.out.println();
 		}
@@ -29,7 +29,7 @@ public class PlayerView extends AbstractView{
 	
 	public void showOptions() {
 		System.out.println("          Scegli l'operazione da effettuare:");
-		System.out.println("[I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+		System.out.println("[R]Leggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 
 		this.choice = getInput();
 	}
@@ -40,6 +40,7 @@ public class PlayerView extends AbstractView{
 		request = new Request();
 		request.put("choice", choice);
 		request.put("mode", "GETCHOICE");
-		MainDispatcher.getInstance().callAction("Player", "doControl", this.request);
+		MainDispatcher.getInstance().callAction("Player", "doControl", request);
+		
 	}
 }

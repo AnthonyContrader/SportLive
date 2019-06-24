@@ -6,6 +6,7 @@ import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Player;
 
+
 public class PlayerDAO implements DAO<Player> {
 
 	private final String QUERY_ALL = "SELECT * FROM players";
@@ -167,15 +168,15 @@ public class PlayerDAO implements DAO<Player> {
 	public Player read(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			Integer idcoach, age, height, gp, score;
-			String playertype, password, nickname;
-			Double weight;
+			String playertype,password , nickname;
+			int idcoach,age, height, gp, score;
+			double weight;
 
+			id = resultSet.getInt("id");
 			idcoach = resultSet.getInt("idcoach");
 			playertype = resultSet.getString("playertype");
 			password = resultSet.getString("password");
@@ -186,14 +187,14 @@ public class PlayerDAO implements DAO<Player> {
 			gp = resultSet.getInt("gp");
 			score = resultSet.getInt("score");
 			
-			
-			Player readPlayer = new Player(idcoach, playertype, password, nickname, age, height, weight, gp, score);
-			readPlayer.setId(resultSet.getInt("id"));
+			Player player = new Player(idcoach, playertype, password, nickname, age, height, weight, gp, score);
+			player.setId(resultSet.getInt("id"));
 
-			return readPlayer;
+			return player;
 		} catch (SQLException e) {
 			return null;
 		}
+
 	}
 
 	@Override

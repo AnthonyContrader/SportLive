@@ -75,8 +75,8 @@ public class PlayerController implements Controller {
 		case "UPDATE":
 			id = Integer.parseInt(request.get("id").toString());
 			idcoach = Integer.parseInt(request.get("idcoach").toString());
-			password = request.get("password").toString();
 			playertype = request.get("playertype").toString();
+			password = request.get("password").toString();
 			nickname = request.get("nickname").toString();
 			age = Integer.parseInt(request.get("age").toString());
 			height = Integer.parseInt(request.get("height").toString());
@@ -93,7 +93,6 @@ public class PlayerController implements Controller {
 			break;
 			
 		case "PLAYERLIST":
-		
 			List<PlayerDTO> playersDTO = playerService.getAll();
 			request.put("players", playersDTO);
 			MainDispatcher.getInstance().callView("Player", request);
@@ -102,9 +101,10 @@ public class PlayerController implements Controller {
 		case "GETCHOICE":
 
 			switch (choice.toUpperCase()) {
-
-			case "L":
+			
+			case "R":
 				MainDispatcher.getInstance().callView(sub_package + "PlayerRead", null);
+			
 				break;
 
 			case "I":
@@ -128,10 +128,12 @@ public class PlayerController implements Controller {
 				break;
 
 			default:
+				System.out.println("cacca");
 				MainDispatcher.getInstance().callView("Login", null);
 			}
 
 		default:
+			System.out.println("merda");
 			MainDispatcher.getInstance().callView("Login", null);
 
 		}

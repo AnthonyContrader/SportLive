@@ -20,7 +20,6 @@ public class PlayerReadView {
 	
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("siamo arrivati nel showresult");
 			PlayerDTO player = (PlayerDTO) request.get("player");
 			System.out.println(player);
 			MainDispatcher.getInstance().callView("Player", null);

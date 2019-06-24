@@ -99,7 +99,7 @@ public void doControl(Request request) {
 			
 			switch (choice.toUpperCase()) {
 			
-			case "L":
+			case "R":
 				MainDispatcher.getInstance().callView(sub_package + "ParametersRead", null);
 				break;
 				
