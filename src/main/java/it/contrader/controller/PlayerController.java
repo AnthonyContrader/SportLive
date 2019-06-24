@@ -39,7 +39,7 @@ public class PlayerController implements Controller {
 			id = Integer.parseInt(request.get("id").toString());
 			PlayerDTO playerDTO = playerService.read(id);
 			request.put("player", playerDTO);
-			MainDispatcher.getInstance().callView(sub_package + "PlayerRead", request);
+			MainDispatcher.getInstance().callView(sub_package + "PlayerR", request);
 			break;
 			
 		case "INSERT":
@@ -102,15 +102,14 @@ public class PlayerController implements Controller {
 
 			switch (choice.toUpperCase()) {
 			
-			case "R":
-				MainDispatcher.getInstance().callView(sub_package + "PlayerRead", null);
 			
-				break;
 
 			case "I":
 				MainDispatcher.getInstance().callView(sub_package + "PlayerInsert", null);
 				break;
-
+			case "R":
+				MainDispatcher.getInstance().callView(sub_package + "PlayerR", null);
+				break;
 			case "M":
 				MainDispatcher.getInstance().callView(sub_package + "PlayerUpdate", null);
 				break;
@@ -128,12 +127,10 @@ public class PlayerController implements Controller {
 				break;
 
 			default:
-				System.out.println("cacca");
 				MainDispatcher.getInstance().callView("Login", null);
 			}
 
 		default:
-			System.out.println("merda");
 			MainDispatcher.getInstance().callView("Login", null);
 
 		}

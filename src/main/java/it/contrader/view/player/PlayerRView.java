@@ -1,12 +1,15 @@
 package it.contrader.view.player;
 
+
+
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
 import it.contrader.dto.PlayerDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.view.AbstractView;
 
-public class PlayerReadView {
+public class PlayerRView extends AbstractView{
 
 	private int id;
 	private int idcoach;
@@ -15,7 +18,7 @@ public class PlayerReadView {
 	
 	private Scanner scanner;
 	
-	public PlayerReadView() {
+	public PlayerRView() {
 	}
 	
 	public void showResults(Request request) {
@@ -36,7 +39,7 @@ public class PlayerReadView {
 		request.put("id", id);
 		request.put("idcoach", idcoach);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Player", "doControl", request);
 	}
 	
 	public String getInput() {

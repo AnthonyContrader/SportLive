@@ -3,7 +3,6 @@ package it.contrader.view.player;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
-import it.contrader.score.Score;
 
 public class PlayerParametersInsertView extends AbstractView {
 	private Request request;
