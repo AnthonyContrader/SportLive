@@ -9,13 +9,12 @@ import it.contrader.model.Player;
 
 public class PlayerDAO implements DAO<Player> {
 
-	private final String QUERY_ALL = "SELECT * FROM players";
+	private final String QUERY_ALL = "SELECT * FROM players ORDER BY score ASC";
 	private final String QUERY_CREATE = "INSERT INTO players (idcoach, playertype, password, nickname, age, height, weight, gp, score) VALUES (?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM players WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE players SET  idcoach=?, playertype=?, password=?, nickname=? , age=?, height=?, weight=?, gp=?, score=? WHERE id=?";
 	private final String QUERY_UPDATE_PARAMETERS = "UPDATE players SET age=?, height=?, weight=?, gp=?, score=?";
 	private final String QUERY_DELETE = "DELETE FROM players WHERE id=?";
-	private final String QUERY_ORDER = "SELECT * FROM players ORDER BY score ASC";
 
 	public List<Player> getAll() {
 
@@ -164,15 +163,7 @@ public class PlayerDAO implements DAO<Player> {
 		return false;
 	}
 	
-	public void order() {
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ORDER);
-
-			} catch (SQLException e) {
-			
-		}
-	}
+	
 
 	@Override
 	public Player read(int id) {
