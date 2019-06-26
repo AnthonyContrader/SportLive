@@ -37,7 +37,7 @@ public class Players {
 		this.id = id;
 	}
 
-	public int idcoach() {
+	public int getidcoach() {
 		return this.idcoach;
 	}
 
@@ -70,7 +70,7 @@ public class Players {
 		return playertype;
 	}
 	
-	public int score() {
+	public int getscore() {
 		return this.score;
 	}
 	public void setscore(int score) {
