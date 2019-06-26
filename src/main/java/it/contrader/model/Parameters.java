@@ -26,7 +26,7 @@ public class Parameters {
 		this.mp = mp;
 	}
 	
-	public Parameters (int data, int age, int height, int weight, int gol, int gp, int mp ) {
+	public Parameters (int data, int age, int height, int weight, int gol, int gp, int mp) {
 		this.data = data;
 		this.age = age;
 		this.height = height;
