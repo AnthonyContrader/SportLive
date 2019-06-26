@@ -30,10 +30,21 @@ public class LoginServlet extends HttpServlet {
 		LoginService service = new LoginService();
 
 		if (request != null) {
+						
 			String username = request.getParameter("username").toString();
 			String password = request.getParameter("password").toString();
+			
+			System.out.println("ho preso: " + username);
+			System.out.println("ho preso: " + password);
+
+			
 			//come nei vecchi controller, invoca il service
 			UserDTO dto = service.login(username, password);
+			
+			
+			System.out.println("ho superato il costruttore del DTO");
+
+			
 			if (dto != null)
 				//se il login ha funzionato, salva l'utente nella sessione
 				session.setAttribute("user", dto);
@@ -48,7 +59,15 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
 				break;
 				
-			case "USER":
+			case "COACH":
+				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
+				break;
+				
+			case "DEVICE":
+				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
+				break;
+				
+			case "PARAMETERS":
 				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
 				break;
 				

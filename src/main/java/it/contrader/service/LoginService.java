@@ -13,6 +13,7 @@ public class LoginService {
 	 * Costruttore della classe, crea un oggetto di tipo LoginDAO per poter chiamare il metodo del DAO
 	 */
 	public LoginService() {
+		
 		this.dao = new LoginDAO();
 		this.converter = new UserConverter();
 	}

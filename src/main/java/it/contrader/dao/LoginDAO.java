@@ -21,11 +21,11 @@ public class LoginDAO {
 
 	
 	public User login (String username, String password) {
-
+		System.out.println();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
-			
+
 			statement.setString(1, username);
 			statement.setString(2, password);
 
