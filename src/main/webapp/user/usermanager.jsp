@@ -77,8 +77,9 @@
    		 <div class="col-75">
  			<select id="type" name="usertype">
   				<option value="ADMIN">ADMIN</option>
-  				<option value="USER">USER</option>
- 
+  				<option value="COACH">COACH</option>
+  				<option value="DEVICE">DEVICE</option>
+ 				<option value="PARAMETERS">PARAMETERS</option>
 			</select>
     	</div>
   </div>

@@ -46,6 +46,8 @@
  			<select id="type" name="usertype">
   				<option value="ADMIN" <%if(u.getUsertype().equals("ADMIN")) {%>selected<%}%>>ADMIN</option>
   				<option value="USER" <%if(u.getUsertype().equals("USER")) {%>selected<%}%>>USER</option>
+  				<option value="DEVICE" <%if(u.getUsertype().equals("DEVICE")) {%>selected<%}%>>DEVICE</option>
+  				<option value="PARAMETERS" <%if(u.getUsertype().equals("PARAMETARS")) {%>selected<%}%>>PARAMETARS</option>
 			</select>
     	</div>
   </div>
