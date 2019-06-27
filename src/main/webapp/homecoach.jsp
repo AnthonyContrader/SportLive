@@ -15,7 +15,7 @@
 
 <div class="navbar">
   <a class="active" href="homecoach.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Players</a>
+  <a href="CoachServlet?mode=userlist">Players</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 
