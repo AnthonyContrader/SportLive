@@ -32,4 +32,24 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PlayerServlet</display-name>
+    <servlet-name>PlayerServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.PlayerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlayerServlet</servlet-name>
+    <url-pattern>/PlayerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeviceServlet</display-name>
+    <servlet-name>DeviceServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.DeviceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeviceServlet</servlet-name>
+    <url-pattern>/DeviceServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
