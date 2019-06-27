@@ -52,4 +52,14 @@
     <servlet-name>DeviceServlet</servlet-name>
     <url-pattern>/DeviceServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>CoachServlet</display-name>
+    <servlet-name>CoachServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.CoachServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CoachServlet</servlet-name>
+    <url-pattern>/CoachServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

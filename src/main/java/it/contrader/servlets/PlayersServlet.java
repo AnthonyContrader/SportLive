@@ -38,7 +38,7 @@ public class PlayersServlet extends HttpServlet {
 		String mode = request.getParameter("mode");
 		PlayersDTO dto;
 		int id;
-		boolean ans;
+		
 
 		switch (mode.toUpperCase()) {
 

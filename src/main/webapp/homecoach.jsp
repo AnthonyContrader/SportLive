@@ -15,12 +15,12 @@
 
 <div class="navbar">
   <a class="active" href="homecoach.jsp">Home</a>
-  <a href="CoachServlet?mode=userlist">Players</a>
+  <a href="CoachServlet?mode=playerslist">Players</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 
 <div class="main">
-<h1>Welcome ${coach.getUsername()}</h1>
+<h1>Welcome coach</h1>
 
 "Pagina del COACH, permettera al coach già nella home di cisualizzare la formazione consigliati divisa in 4 categorie di gioctori (attacante, centrocampista, difensore, portiere),"
 "organizandoli in una lista singola per ogni tipo e posizionando in ordine decrescente i giocatori più consigliati al gioco"

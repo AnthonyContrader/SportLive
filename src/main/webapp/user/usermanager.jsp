@@ -27,9 +27,7 @@
 		<tr>
 			<th>Username</th>
 			<th>Password</th>
-			<th>Usertype</th>
-			<th></th>
-			<th></th>
+			<th>UserType</th>
 		</tr>
 		<%
 			for (UserDTO u : list) {
