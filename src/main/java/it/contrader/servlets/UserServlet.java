@@ -1,9 +1,6 @@
 package it.contrader.servlets;
 
 import java.util.List;
-
-
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

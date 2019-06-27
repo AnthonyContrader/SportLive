@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 				break;
 				
 			case "COACH":
-				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/homecoach.jsp").forward(request, response);
 				break;
 				
 			case "DEVICE":
