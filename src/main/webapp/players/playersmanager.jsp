@@ -43,9 +43,9 @@
 			<td><%=u.getpassword()%></td>
 			<td><%=u.getplayertype()%></td>
 			<td><%=u.getscore()%></td>
-			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><a href=CoachServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
-			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a href=CoachServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 
 		</tr>

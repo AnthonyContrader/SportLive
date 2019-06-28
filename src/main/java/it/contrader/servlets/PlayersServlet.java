@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.PlayersDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.PlayersService;
 
@@ -37,7 +38,9 @@ public class PlayersServlet extends HttpServlet {
 		Service<PlayersDTO> service = new PlayersService();
 		String mode = request.getParameter("mode");
 		PlayersDTO dto;
-		int id;
+		int id, score;
+		String nickname, password, playertype;
+		boolean ans;
 		
 
 		switch (mode.toUpperCase()) {
@@ -53,12 +56,24 @@ public class PlayersServlet extends HttpServlet {
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/players/readparameters.jsp").forward(request, response);
+				 getServletContext().getRequestDispatcher("/players/readplayers.jsp").forward(request, response);
 				
 			}
 			
-			else getServletContext().getRequestDispatcher("/players/updateparameters.jsp").forward(request, response);
+			else getServletContext().getRequestDispatcher("/players/updateplayrs.jsp").forward(request, response);
 			
+			break;
+		case "UPDATE":
+			
+			nickname = request.getParameter("nickname");
+			password = request.getParameter("password");
+			playertype = request.getParameter("playertype");
+			score = Integer.parseInt(request.getParameter("score"));
+			id = Integer.parseInt(request.getParameter("id"));
+			dto = new PlayersDTO (id, nickname, password, playertype, score);
+			ans = service.update(dto);
+			updateList(request);
+			getServletContext().getRequestDispatcher("/players/playersmanager.jsp").forward(request, response);
 			break;
 		}
 	}
