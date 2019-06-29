@@ -26,7 +26,6 @@ public class CoachServlet extends HttpServlet{
 	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Sono passato di qua!!!!!!!");
 		Service<PlayersDTO> service = new PlayersService();
 		String mode = request.getParameter("mode");
 		PlayersDTO dto;
@@ -90,6 +89,12 @@ public class CoachServlet extends HttpServlet{
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/players/playersmanager.jsp").forward(request, response);
+			break;
+		
+		case "DEVICE":
+//				APERTURA DEL DEVICE RIGUARDANTE L'UTENTE
+			id = Integer.parseInt(request.getParameter("id"));
+			getServletContext().getRequestDispatcher("/players/playerdevicemanager.jsp").forward(request, response);
 			break;
 		}
 	}

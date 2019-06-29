@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.PlayersDTO"%>
+	import="it.contrader.dto.PlayersDTO"
+	import="it.contrader.dto.ParametersDTO"%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +21,6 @@
 </div>
 <div class="main">
 	<%
-	out.println("sono qui");
 		List<PlayersDTO> list = (List<PlayersDTO>) request.getAttribute("list");
 	%>
 
@@ -32,9 +34,12 @@
 			<th>score</th>
 			<th></th>
 			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 		<%
 			for (PlayersDTO u : list) {
+			
 		%>
 		<tr>
 			<td><a href=PlayersServlet?mode=read&id=<%=u.getId()%>>
@@ -43,13 +48,18 @@
 			<td><%=u.getpassword()%></td>
 			<td><%=u.getplayertype()%></td>
 			<td><%=u.getscore()%></td>
+			<td></td>
+			<td></td>
 			<td><a href=CoachServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			</td>
+			<td><a href=CoachServlet?mode=device&id=<%=u.getId()%>>Device</a>
 			</td>
 			<td><a href=CoachServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 
 		</tr>
 		<%
+				
 			}
 		%>
 	</table>
