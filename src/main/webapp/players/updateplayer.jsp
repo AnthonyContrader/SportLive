@@ -59,7 +59,7 @@
       <label for="type">Usertype</label>
     </div>
    		 <div class="col-75">
- 			<select id="type" name="usertype">
+ 			<select id="type" name="playertype">
   				<option value="ATTACCANTE" <%if(u.getPlayertype().equals("ATTACANTE")) {%>selected<%}%>>ATTACANTE</option>
   				<option value="CENTROCAMPO" <%if(u.getPlayertype().equals("CENTROCAMPO")) {%>selected<%}%>>CENTROCAMPO</option>
   				<option value="DIFENSORE" <%if(u.getPlayertype().equals("DIFENSORE")) {%>selected<%}%>>DIFENSORE</option>

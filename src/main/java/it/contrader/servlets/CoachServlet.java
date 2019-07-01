@@ -74,12 +74,10 @@ public class CoachServlet extends HttpServlet{
 		case "UPDATE":
 			
 			idcoach = Integer.parseInt(request.getParameter("idcoach"));
-			//idcoach = 2;
 			username = request.getParameter("username");
 			password = request.getParameter("password");
 			playertype = request.getParameter("playertype");
 			score = Integer.parseInt(request.getParameter("score"));
-			//score = 200;
 			
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = new PlayersDTO (id, idcoach ,username, password, playertype, score);
