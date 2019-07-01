@@ -10,8 +10,8 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a class="active"  href="UserServlet?mode=userlist">Users</a>
+  <a href="homeplayer.jsp">Home</a>
+  <a class="active"  href="CoachServlet?mode=playerlist">Users</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -27,9 +27,9 @@
 		<th>Playertype</th>
 	</tr>
 	<tr>
-		<td><%=u.getnickname()%></td>
-		<td> <%=u.getpassword()%></td>
-		<td> <%=u.getplayertype()%></td>
+		<td><%=u.getNickname()%></td>
+		<td> <%=u.getPassword()%></td>
+		<td> <%=u.getPlayertype()%></td>
 	</tr>	
 </table>
 

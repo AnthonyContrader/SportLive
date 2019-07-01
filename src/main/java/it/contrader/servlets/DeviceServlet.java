@@ -63,11 +63,12 @@ public class DeviceServlet extends HttpServlet {
 			break;
 
 		case "INSERT":
-			
+			idplayer = 2;    	//inserire id del giocatore
 			heartbeat = Integer.parseInt(request.getParameter("heartbeat"));
 			pressure = Integer.parseInt(request.getParameter("pressure"));
 			breath = Integer.parseInt(request.getParameter("breath"));
-			dto = new DeviceDTO (heartbeat, pressure, breath);
+			
+			dto = new DeviceDTO (idplayer, heartbeat, pressure, breath);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);

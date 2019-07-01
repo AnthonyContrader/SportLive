@@ -41,27 +41,30 @@ public class CoachServlet extends HttpServlet{
 			break;
 
 		case "READ":
+			
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
+			
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/players/readplayers.jsp").forward(request, response);
-				
+				 getServletContext().getRequestDispatcher("/players/readplayers.jsp").forward(request, response);			
 			}
-			
-			else getServletContext().getRequestDispatcher("/players/updateplayers.jsp").forward(request, response);
+			else { 
+				getServletContext().getRequestDispatcher("/players/updateplayer.jsp").forward(request, response);
+			}
 			
 			break;
 
 		case "INSERT":
-			idcoach = Integer.parseInt(request.getParameter("idcoach"));
-			String username = request.getParameter("username").toString();
+			
+			idcoach = Integer.parseInt(request.getParameter("idcoach").toString());
+			String username = request.getParameter("nickname").toString();
 			String password = request.getParameter("password").toString();
 			String playertype = request.getParameter("playertype").toString();
-			score = Integer.parseInt(request.getParameter("score"));
+			score = Integer.parseInt(request.getParameter("score").toString());
 			
-			dto = new PlayersDTO (idcoach, username,password,playertype, score);
+			dto = new PlayersDTO (idcoach, username, password, playertype, score);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -71,10 +74,12 @@ public class CoachServlet extends HttpServlet{
 		case "UPDATE":
 			
 			idcoach = Integer.parseInt(request.getParameter("idcoach"));
+			//idcoach = 2;
 			username = request.getParameter("username");
 			password = request.getParameter("password");
 			playertype = request.getParameter("playertype");
 			score = Integer.parseInt(request.getParameter("score"));
+			//score = 200;
 			
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = new PlayersDTO (id, idcoach ,username, password, playertype, score);
@@ -89,12 +94,6 @@ public class CoachServlet extends HttpServlet{
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/players/playersmanager.jsp").forward(request, response);
-			break;
-		
-		case "DEVICE":
-//				APERTURA DEL DEVICE RIGUARDANTE L'UTENTE
-			id = Integer.parseInt(request.getParameter("id"));
-			getServletContext().getRequestDispatcher("/players/playerdevicemanager.jsp").forward(request, response);
 			break;
 		}
 	}

@@ -20,7 +20,7 @@
 </div>
 
 <div class="main">
-<h1>Welcome coach</h1>
+<h1>Welcome Coach ${user.getUsername()}</h1>
 
 "Pagina del COACH, permettera al coach già nella home di cisualizzare la formazione consigliati divisa in 4 categorie di gioctori (attacante, centrocampista, difensore, portiere),"
 "organizandoli in una lista singola per ogni tipo e posizionando in ordine decrescente i giocatori più consigliati al gioco"

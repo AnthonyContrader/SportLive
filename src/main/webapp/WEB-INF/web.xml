@@ -52,7 +52,7 @@
     <servlet-name>DeviceServlet</servlet-name>
     <url-pattern>/DeviceServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>CoachServlet</display-name>
     <servlet-name>CoachServlet</servlet-name>
@@ -61,5 +61,15 @@
   <servlet-mapping>
     <servlet-name>CoachServlet</servlet-name>
     <url-pattern>/CoachServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ParametersServlet</display-name>
+    <servlet-name>ParametersServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.ParametersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParametersServlet</servlet-name>
+    <url-pattern>/ParametersServlet</url-pattern>
   </servlet-mapping>
 </web-app>

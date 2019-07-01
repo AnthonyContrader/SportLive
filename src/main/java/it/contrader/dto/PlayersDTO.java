@@ -12,6 +12,13 @@ public class PlayersDTO {
 	public PlayersDTO() {
 		
 	}
+	
+	public PlayersDTO (String nickname, String password, String playertype, int score) {
+		this.nickname = nickname;
+		this.password = password;
+		this.playertype = playertype;
+		this.score = score;
+	}
 
 	public PlayersDTO (int idcoach, String nickname, String password, String playertype, int score) {
 		this.idcoach = idcoach;
@@ -37,42 +44,42 @@ public class PlayersDTO {
 		this.id = id;
 	}
 
-	public int getidcoach() {
+	public int getIdcoach() {
 		return this.idcoach;
 	}
 
-	public void setidcoach(int idcoach) {
+	public void setIdcoach(int idcoach) {
 		this.idcoach = idcoach;
 	}
 
-	public String getnickname() {
+	public String getNickname() {
 		return this.nickname;
 	}
 
-	public void setnickname(String nickname) {
+	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
 
-	public void setpassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
 	
-	public void setplayertype(String playertype) {
+	public void setPlayertype(String playertype) {
 		this.playertype = playertype;
 	}
 
-	public String getplayertype() {
+	public String getPlayertype() {
 		return playertype;
 	}
 	
-	public int getscore() {
+	public int getScore() {
 		return this.score;
 	}
-	public void setscore(int score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 }

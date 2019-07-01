@@ -54,15 +54,7 @@ public class LoginServlet extends HttpServlet {
 			case "COACH":
 				getServletContext().getRequestDispatcher("/homecoach.jsp").forward(request, response);
 				break;
-				
-			case "DEVICE":
-				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
-				break;
-				
-			case "PARAMETERS":
-				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
-				break;
-				
+	
 			default:
 				//di default rimanda al login
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

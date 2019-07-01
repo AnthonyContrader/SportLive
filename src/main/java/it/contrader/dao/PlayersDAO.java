@@ -47,11 +47,11 @@ public class PlayersDAO implements DAO<Players> {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setInt(1, playersToInsert.getidcoach());
-			preparedStatement.setString(2, playersToInsert.getnickname());
-			preparedStatement.setString(3, playersToInsert.getpassword());
-			preparedStatement.setString(4, playersToInsert.getplayertype());
-			preparedStatement.setInt(5, playersToInsert.getscore());
+			preparedStatement.setInt(1, playersToInsert.getIdcoach());
+			preparedStatement.setString(2, playersToInsert.getNickname());
+			preparedStatement.setString(3, playersToInsert.getPassword());
+			preparedStatement.setString(4, playersToInsert.getPlayertype());
+			preparedStatement.setInt(5, playersToInsert.getScore());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -97,33 +97,33 @@ public class PlayersDAO implements DAO<Players> {
 		if (!playersRead.equals(playersToUpdate)) {
 			try {
 				// Fill the playersToUpdate object
-				if (playersToUpdate.getidcoach() == 0) {
-					playersToUpdate.setidcoach(playersRead.getidcoach());
+				if (playersToUpdate.getIdcoach() == 0) {
+					playersToUpdate.setIdcoach(playersRead.getIdcoach());
 				}
 				
-				if (playersToUpdate.getnickname() == null || playersToUpdate.getnickname().equals("")) {
-					playersToUpdate.setnickname(playersRead.getnickname());
+				if (playersToUpdate.getNickname() == null || playersToUpdate.getNickname().equals("")) {
+					playersToUpdate.setNickname(playersRead.getNickname());
 				}
 
-				if (playersToUpdate.getpassword() == null || playersToUpdate.getpassword().equals("")) {
-					playersToUpdate.setpassword(playersRead.getpassword());
+				if (playersToUpdate.getPassword() == null || playersToUpdate.getPassword().equals("")) {
+					playersToUpdate.setPassword(playersRead.getPassword());
 				}
 
-				if (playersToUpdate.getplayertype() == null || playersToUpdate.getplayertype().equals("")) {
-					playersToUpdate.setplayertype(playersRead.getplayertype());
+				if (playersToUpdate.getPlayertype() == null || playersToUpdate.getPlayertype().equals("")) {
+					playersToUpdate.setPlayertype(playersRead.getPlayertype());
 				}
 				
-				if (playersToUpdate.getscore() == 0) {
-					playersToUpdate.setscore(playersRead.getscore());
+				if (playersToUpdate.getScore() == 0) {
+					playersToUpdate.setScore(playersRead.getScore());
 				}
 
 				// Update the players
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setInt(1, playersToUpdate.getidcoach());
-				preparedStatement.setString(2, playersToUpdate.getnickname());
-				preparedStatement.setString(3, playersToUpdate.getpassword());
-				preparedStatement.setString(4, playersToUpdate.getplayertype());
-				preparedStatement.setInt(5, playersToUpdate.getscore());
+				preparedStatement.setInt(1, playersToUpdate.getIdcoach());
+				preparedStatement.setString(2, playersToUpdate.getNickname());
+				preparedStatement.setString(3, playersToUpdate.getPassword());
+				preparedStatement.setString(4, playersToUpdate.getPlayertype());
+				preparedStatement.setInt(5, playersToUpdate.getScore());
 				preparedStatement.setInt(6, playersToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

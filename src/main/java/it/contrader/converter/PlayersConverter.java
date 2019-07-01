@@ -11,14 +11,14 @@ public class PlayersConverter  implements Converter<Players, PlayersDTO> {
 	
 	@Override
 	public PlayersDTO toDTO(Players players) {
-		PlayersDTO playersDTO = new PlayersDTO(players.getId(), players.getidcoach(), players.getnickname(), players.getpassword(), players.getplayertype(), players.getscore());
+		PlayersDTO playersDTO = new PlayersDTO(players.getId(), players.getIdcoach(), players.getNickname(), players.getPassword(), players.getPlayertype(), players.getScore());
 		return playersDTO;
 	}
 	
 	
 	@Override
 	public Players toEntity(PlayersDTO playersDTO) {
-		Players players = new Players(playersDTO.getId(), playersDTO.getidcoach(), playersDTO.getnickname(), playersDTO.getpassword(), playersDTO.getplayertype(), playersDTO.getscore());
+		Players players = new Players(playersDTO.getId(), playersDTO.getIdcoach(), playersDTO.getNickname(), playersDTO.getPassword(), playersDTO.getPlayertype(), playersDTO.getScore());
 		return players;
 	}
 	

@@ -23,10 +23,18 @@
 <form id="floatleft" action="CoachServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
+      <label for="user">idcoach</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="user" name="idcoach" value=<%=u.getIdcoach()%>>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
       <label for="user">Username</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="username" value=<%=u.getnickname()%>>
+      <input type="text" id="user" name="username" value=<%=u.getNickname()%>>
     </div>
   </div>
   <div class="row">
@@ -35,7 +43,15 @@
     </div>
     <div class="col-75">
       <input
-			type="text" id="pass" name="password" value=<%=u.getpassword()%>> 
+			type="text" id="pass" name="password" value=<%=u.getPassword()%>> 
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="user">Punteggio</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="user" name="score" value=<%=u.getScore()%>>
     </div>
   </div>
   <div class="row">
@@ -44,10 +60,10 @@
     </div>
    		 <div class="col-75">
  			<select id="type" name="usertype">
-  				<option value="ATTACCANTE" <%if(u.getplayertype().equals("ATTACANTE")) {%>selected<%}%>>ATTACANTE</option>
-  				<option value="CENTROCAMPO" <%if(u.getplayertype().equals("CENTROCAMPO")) {%>selected<%}%>>CENTROCAMPO</option>
-  				<option value="DIFENSORE" <%if(u.getplayertype().equals("DIFENSORE")) {%>selected<%}%>>DIFENSORE</option>
-  				<option value="PORTIERE" <%if(u.getplayertype().equals("PORTIERE")) {%>selected<%}%>>PORTIERE</option>
+  				<option value="ATTACCANTE" <%if(u.getPlayertype().equals("ATTACANTE")) {%>selected<%}%>>ATTACANTE</option>
+  				<option value="CENTROCAMPO" <%if(u.getPlayertype().equals("CENTROCAMPO")) {%>selected<%}%>>CENTROCAMPO</option>
+  				<option value="DIFENSORE" <%if(u.getPlayertype().equals("DIFENSORE")) {%>selected<%}%>>DIFENSORE</option>
+  				<option value="PORTIERE" <%if(u.getPlayertype().equals("PORTIERE")) {%>selected<%}%>>PORTIERE</option>
 			</select>
     	</div>
   </div>
