@@ -9,35 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<%
-		List<UserDTO> list = (List<UserDTO>) request.getAttribute("list");
-	%>
-
-<br>
-
-	<table>
-		<tr>
-			<th>Username</th>
-			<th>Password</th>
-			<th>Ruolo</th>
-			<th>E-Mail</th>
-			<th></th>
-		</tr>
-		<%
-			for (UserDTO u : list) {
-		%>
-		<tr>
-			<td><a<%=u.getIdUser()%>>
-			<%=u.getUsername()%></a></td>
-			<td><%=u.getPassword()%></td>
-			<td><%=u.getRuolo()%></td>
-			<td><%=u.getEmail()%></td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-
+<h1>VIVA LA JSP!!!!</h1>
 </body>
 </html>
