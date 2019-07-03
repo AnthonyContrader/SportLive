@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.PlayerDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.model.Player;
-import it.contrader.model.User;
 
 public class ConverterPlayer {
 
