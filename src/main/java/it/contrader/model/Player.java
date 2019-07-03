@@ -17,27 +17,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class Player {
 
 	@Id
-	@Column(name = "idUser")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUser;
-
-	@Column(name = "username")
+	private Integer id;
+	
+	
+	@Column(name = "idPlayer")
 	@NotNull
-	private String username;
-
+	private Integer idPlayer;
+	
+	@Column(name = "nickname")
+	@NotNull
+	private String nickname;
+	
 	@Column(name = "password")
 	@NotNull
 	private String password;
-    
+	
+	@Column(name = "playertype")
 	@NotNull
-	@Column(name = "ruolo")
-	private String ruolo;
-
-	@Nullable
-	@Column(name = "email")
-	private String email;
-
+	private String playertype;
+	
+	@Column(name = "score")
+	@NotNull
+	private Integer score;
+	
 }
