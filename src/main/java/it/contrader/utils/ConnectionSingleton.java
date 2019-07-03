@@ -23,7 +23,7 @@ public class ConnectionSingleton {
               String driver="com.mysql.jdbc.Driver";
               String host="127.0.0.1";
               String port="3306";
-              String dbName="sportlive";
+              String dbName="contraderspring";
               String username="root";
               String password ="root";
               Class c = Class.forName(driver);
