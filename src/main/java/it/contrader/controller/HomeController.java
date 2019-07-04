@@ -47,4 +47,10 @@ public class HomeController {
 		return "home";
 
 	}
+	
+	@RequestMapping(value = "/indietrocoach", method = RequestMethod.GET)
+	public String indietrocoach(HttpServletRequest request) {
+		return "homecoach";
+
+	}
 }

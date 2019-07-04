@@ -7,19 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Home Coach</h1>
-<h2>benvenuto!</h2>
-
+<h1>Home Parameters</h1>
 
 <nav class='navbar navbar-inverse'>
      <div class='container-fluid'>
          <ul class='nav navbar-nav navbar-inverse navbar-custom'>
-            <li><a href="/Coach/device/">Device</a></li>
-            <li><a href="/Coach/parameters/">Parameters</a></li>
-            <li><a href="/Home/logout/">Logout</a></li>
+            <li><a href="/Home/indietrocoach/">Back</a></li>
          </ul>
     </div>
 </nav>
-
 </body>
 </html>

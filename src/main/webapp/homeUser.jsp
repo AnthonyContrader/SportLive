@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.util.List"
-    import="it.contrader.dto.UserDTO"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>VIVA LA JSP!!!!</h1>
+<h1>Home User</h1>
 </body>
 </html>

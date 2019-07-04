@@ -16,16 +16,16 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/User")
-public class UserController {
+@RequestMapping("/Coach")
+public class CoachController {
 
 	private final UserService userService;
 	private HttpSession session;
 	
 	@Autowired
-	public UserController(UserService userService) {
+	public CoachController(UserService userService) {
 		this.userService = userService;
-	}
+	}	
 
 	private void visualUser(HttpServletRequest request){
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
@@ -54,6 +54,18 @@ public class UserController {
 		request.setAttribute("option", "insert");
 		return "creaUser";
 		
+	}
+	
+	@RequestMapping(value = "/parameters", method = RequestMethod.GET)
+	public String parameters(HttpServletRequest request) {
+		return "homeparameters";
+
+	}
+	
+	@RequestMapping(value = "/device", method = RequestMethod.GET)
+	public String device(HttpServletRequest request) {
+		return "homedevice";
+
 	}
 	
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
