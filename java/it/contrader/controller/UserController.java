@@ -9,6 +9,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.PlayerDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.services.UserService;
 
@@ -20,12 +21,14 @@ import java.util.List;
 public class UserController {
 
 	private final UserService userService;
+	
 	private HttpSession session;
 	
 	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
+	
 
 	private void visualUser(HttpServletRequest request){
 		List<UserDTO> allUser = this.userService.getListaUserDTO();

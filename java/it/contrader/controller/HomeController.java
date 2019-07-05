@@ -53,4 +53,16 @@ public class HomeController {
 		return "homecoach";
 
 	}
+	
+	@RequestMapping(value = "/loginAdmin", method = RequestMethod.GET)
+	public String loginAdmin(HttpServletRequest request) {
+		return "AdminLogin";
+
+	}
+	
+	@RequestMapping(value = "/loginPlayer", method = RequestMethod.GET)
+	public String loginPlayer(HttpServletRequest request) {
+		return "playerLogin";
+
+	}
 }
