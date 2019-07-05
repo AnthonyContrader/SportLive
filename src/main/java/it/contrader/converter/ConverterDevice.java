@@ -20,6 +20,7 @@ public class ConverterDevice {
 		return deviceDTO;
 	}
 	
+	
 	public static Device toEntity(DeviceDTO deviceDTO) {
 		Device device = null;
 		if(deviceDTO != null) {
