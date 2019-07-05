@@ -16,6 +16,7 @@ public class ConverterDevice {
 			deviceDTO.setHeartbeat(device.getHeartbeat());
 			deviceDTO.setPressure(device.getPressure());
 			deviceDTO.setBreath(device.getBreath());
+//device aggiornato
 		}
 		return deviceDTO;
 	}
@@ -54,3 +55,5 @@ public class ConverterDevice {
 		return list;
 	}
 }
+
+
