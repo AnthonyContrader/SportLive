@@ -55,5 +55,10 @@ public class ParametersService {
 		
 	
 	}
+
+	public List<ParametersDTO> findParametersDTOByUsername(String content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
