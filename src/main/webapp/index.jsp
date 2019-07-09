@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login WESER</title>
+	<title>Login SportLive</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="\login\img\SportLive.svg.jpg"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/login/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
