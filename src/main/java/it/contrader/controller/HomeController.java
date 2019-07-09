@@ -61,7 +61,7 @@ public class HomeController {
 	public String homeTutor(HttpServletRequest request) {
 		//List<CureDTO> allCure = this.cureService.getListaCureDTO();
 		//request.setAttribute("allCureDTO", allCure);
-		return "homeTutor.jsp";
+		return "homeCoach.jsp";
 	}
 
 	@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
@@ -70,6 +70,6 @@ public class HomeController {
 		//request.setAttribute("allCureDTO", allCure);
 		List<DeviceDTO> allDevice = this.deviceService.getListaDeviceDTO();
 		request.setAttribute("allDeviceDTO", allDevice);
-		return "homeDoctor.jsp";
+		return "homePlayer.jsp";
 	}
 }
