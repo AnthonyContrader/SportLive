@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,20 +77,13 @@ public class DeviceController {
 		public String updateDevice(HttpServletRequest request)
 		{
 			int idUpdate = Integer.parseInt(request.getParameter("id"));
-			String regUpdate = request.getParameter("regnum");
-			String typeUpdate = request.getParameter("devtype");
-			String descUpdate = request.getParameter("descr");
-			int mincirUpdate = Integer.parseInt(request.getParameter("mincir"));
-			int maxcirUpdate = Integer.parseInt(request.getParameter("maxcir"));
-			int minpresUpdate = Integer.parseInt(request.getParameter("minpress"));
-			int maxpresUpdate = Integer.parseInt(request.getParameter("maxpress"));
-			int minbreathUpdate = Integer.parseInt(request.getParameter("minbreath"));
-			int maxbreathUpdate = Integer.parseInt(request.getParameter("maxbreath"));
-			float mintempUpdate = Float.parseFloat(request.getParameter("mintemp"));
-			float maxtempUpdate = Float.parseFloat(request.getParameter("maxtemp"));
+			int idPalyerUpdate = Integer.parseInt(request.getParameter("idPlayer"));
+			String heartbeatUpdate = request.getParameter("heartbeat");
+			String pressureUpdate = request.getParameter("pressure");
+			String breathUpdate = request.getParameter("breath");
 			
 			
-			final DeviceDTO device = new DeviceDTO();
+			final DeviceDTO device = new DeviceDTO(idUpdate, idPalyerUpdate, heartbeatUpdate, pressureUpdate, breathUpdate);
 			device.setId(idUpdate);
 			
 			deviceService.updateDevice(device);
@@ -104,20 +96,13 @@ public class DeviceController {
 		public String updateDeviceD(HttpServletRequest request)
 		{
 			int idUpdate = Integer.parseInt(request.getParameter("id"));
-			String regUpdate = request.getParameter("regnum");
-			String typeUpdate = request.getParameter("devtype");
-			String descUpdate = request.getParameter("descr");
-			int mincirUpdate = Integer.parseInt(request.getParameter("mincir"));
-			int maxcirUpdate = Integer.parseInt(request.getParameter("maxcir"));
-			int minpresUpdate = Integer.parseInt(request.getParameter("minpress"));
-			int maxpresUpdate = Integer.parseInt(request.getParameter("maxpress"));
-			int minbreathUpdate = Integer.parseInt(request.getParameter("minbreath"));
-			int maxbreathUpdate = Integer.parseInt(request.getParameter("maxbreath"));
-			float mintempUpdate = Float.parseFloat(request.getParameter("mintemp"));
-			float maxtempUpdate = Float.parseFloat(request.getParameter("maxtemp"));
+			int idPalyerUpdate = Integer.parseInt(request.getParameter("idPlayer"));
+			String heartbeatUpdate = request.getParameter("heartbeat");
+			String pressureUpdate = request.getParameter("pressure");
+			String breathUpdate = request.getParameter("breath");
 			
 			
-			final DeviceDTO device = new DeviceDTO();
+			final DeviceDTO device = new DeviceDTO(idUpdate, idPalyerUpdate, heartbeatUpdate, pressureUpdate, breathUpdate);
 			device.setId(idUpdate);
 			
 			deviceService.updateDevice(device);
@@ -127,20 +112,14 @@ public class DeviceController {
 		}
 		@RequestMapping(value = "/insertDevice", method = RequestMethod.POST)
 		public String insertDevice(HttpServletRequest request) {
-			String reg = request.getParameter("regnum");
-			String type = request.getParameter("devtype");
-			String descr = request.getParameter("descr");
-			int mincir = Integer.parseInt(request.getParameter("mincir"));
-			int maxcir = Integer.parseInt(request.getParameter("maxcir"));
-			int minpress = Integer.parseInt(request.getParameter("minpress"));
-			int maxpress = Integer.parseInt(request.getParameter("maxpress"));
-			int minbreath = Integer.parseInt(request.getParameter("minbreath"));
-			int maxbreath = Integer.parseInt(request.getParameter("maxbreath"));
-			float mintemp = Float.parseFloat(request.getParameter("mintemp"));
-			float maxtemp = Float.parseFloat(request.getParameter("maxtemp"));
+			int id = Integer.parseInt(request.getParameter("id"));
+			int idPalyer = Integer.parseInt(request.getParameter("idPlayer"));
+			String heartbeat = request.getParameter("heartbeat");
+			String pressure = request.getParameter("pressure");
+			String breath = request.getParameter("breath");
 			
 			
-			DeviceDTO deviceDTO = new DeviceDTO();
+			DeviceDTO deviceDTO = new DeviceDTO(id, idPalyer, heartbeat, pressure, breath);
 			
 			deviceService.insertDevice(deviceDTO);
 			
