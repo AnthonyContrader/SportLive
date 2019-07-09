@@ -4,11 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import it.contrader.dto.ParametersDTO;
 import it.contrader.services.ParametersService;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 
 @CrossOrigin
@@ -34,29 +32,29 @@ public class ParametersController {
 		this.parametersService = parametersService;
 	}
 
-	@RequestMapping(value = "/readingManagement", method = RequestMethod.GET)
-	public String readingManagement(HttpServletRequest request) {
-		request.setAttribute("parameters", getReadings());
-		return "reading/readingManagement";
+	@RequestMapping(value = "/parametersManagement", method = RequestMethod.GET)
+	public String parametersManagement(HttpServletRequest request) {
+		request.setAttribute("parameters", getParameters());
+		return "parameters/parametersManagement";
 	}
 
-	public List<ParametersDTO> getReadings() {
+	public List<ParametersDTO> getParameters() {
 		List<ParametersDTO> tmp = parametersService.getListaParametersDTO();
-		List<ParametersDTO> readingList = new ArrayList<>();
-		for (ParametersDTO reading : tmp) {
-			if (reading.getPatcf() != "") {
-				readingList.add(reading);
+		List<ParametersDTO> parametersList = new ArrayList<>();
+		for (ParametersDTO parameters : tmp) {
+			if (parameters.getId() == 0) {
+				parametersList.add(parameters);
 			}
 		}
 
-		return readingList;
+		return parametersList;
 	}
 
-	@RequestMapping(value = "/deleteReading", method = RequestMethod.GET)
-	public String deleteReading(HttpServletRequest request) {
-		int idReading = Integer.parseInt(request.getParameter("id"));
-		readingService.deleteReadingById(idReading);
-		request.setAttribute("reading", getReadings());
+	@RequestMapping(value = "/deleteParameters", method = RequestMethod.GET)
+	public String deleteParameters(HttpServletRequest request) {
+		int idParameters = Integer.parseInt(request.getParameter("id"));
+		parametersService.deleteParametersById(idParameters);
+		request.setAttribute("reading", getParameters());
 		return "reading/readingManagement";
 	}
 
@@ -94,22 +92,24 @@ public class ParametersController {
 //	}
 
 	@RequestMapping(value = "/insertReading", method = RequestMethod.POST)
-	public String insertReading(HttpServletRequest request) {
+	public String insertParameters(HttpServletRequest request) {
 
-		String patcf = request.getParameter("patcf");
-		String regdev = request.getParameter("regdev");
-		int minpress = Integer.parseInt(request.getParameter("minpress"));
-		int maxpress = Integer.parseInt(request.getParameter("maxpress"));
-		int cir = Integer.parseInt(request.getParameter("cir"));
-		int breath = Integer.parseInt(request.getParameter("breath"));
-		float temp = Float.parseFloat(request.getParameter("temp"));
-		String giornora = request.getParameter("giornora");
+		int id = Integer.parseInt(request.getParameter("id"));
+		int idPlayer = Integer.parseInt(request.getParameter("idPlayer"));
+		int data = Integer.parseInt(request.getParameter("data"));
+		int age = Integer.parseInt(request.getParameter("age"));
+		int height = Integer.parseInt(request.getParameter("height"));
+		int weight = Integer.parseInt(request.getParameter("weight"));
+		int gol = Integer.parseInt(request.getParameter("gol"));
+		int gp = Integer.parseInt(request.getParameter("gp"));
+		int mp = Integer.parseInt(request.getParameter("mp"));
 
-		ReadingDTO readingDTO = new ReadingDTO(patcf, regdev, minpress, maxpress, cir, breath, temp, giornora);
 
-		readingService.insertReading(readingDTO);
+		ParametersDTO parametersDTO = new ParametersDTO(id, idPlayer, data, age, height, weight, gol, gp, mp);
 
-		request.setAttribute("reading", getReadings());
+		parametersService.insertParameters(parametersDTO);
+
+		request.setAttribute("parameters", getParameters());
 
 		return "reading/readingManagement";
 	}

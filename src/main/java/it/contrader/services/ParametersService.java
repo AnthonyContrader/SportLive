@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.ConverterParameters;
 import it.contrader.dao.ParametersRepository;
 import it.contrader.dto.ParametersDTO;
+import it.contrader.model.Parameters;
 
 @Service
 public class ParametersService {
@@ -22,6 +23,10 @@ public class ParametersService {
 
 	public ParametersDTO getParametersDTOById(Integer id) {
 		return ConverterParameters.toDTO(parametersRepository.findById(id).get());
+	}
+	
+	public List<ParametersDTO> getListaParametersDTO() {
+		return ConverterParameters.toListDTO((List<Parameters>) parametersRepository.findAll());
 	}
 
 
