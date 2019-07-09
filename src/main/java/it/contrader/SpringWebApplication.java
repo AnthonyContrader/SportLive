@@ -9,8 +9,12 @@ import it.contrader.services.UserService;
 @SpringBootApplication
 public class SpringWebApplication {
 
-	@Autowired
 	static UserService userService;
+
+	@Autowired
+	public SpringWebApplication(UserService userService) {
+		this.userService = userService;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringWebApplication.class, args);

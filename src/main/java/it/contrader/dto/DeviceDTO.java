@@ -8,12 +8,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DeviceDTO {
+	
+	private int id;
 
-	private Integer idPlayer;
+	private int idPlayer;
 	
-	private Integer heartbeat;
+	private String heartbeat;
 	
-	private Integer pressure;
+	private String pressure;
+
+	private String breath;
 	
-	private Integer breath;
+
+	public DeviceDTO(String heartbeat, String pressure, String breath) {
+		super();
+		this.heartbeat = heartbeat;
+		this.pressure = pressure;
+		this.breath = breath;
+	}
+	
+	
 }

@@ -12,39 +12,35 @@ public class ConverterDevice {
 		DeviceDTO deviceDTO = null;
 		if (device != null) {
 			deviceDTO = new DeviceDTO();
+			deviceDTO.setId(device.getId());
 			deviceDTO.setIdPlayer(device.getIdPlayer());
 			deviceDTO.setHeartbeat(device.getHeartbeat());
-			deviceDTO.setPressure(device.getPressure());
-			deviceDTO.setBreath(device.getBreath());
-//device aggiornato
+			
 		}
 		return deviceDTO;
 	}
-	
-	
+
+	@SuppressWarnings("null")
 	public static Device toEntity(DeviceDTO deviceDTO) {
 		Device device = null;
-		if(deviceDTO != null) {
+		if (deviceDTO != null) {
 			device = new Device();
-			device.setIdPlayer(deviceDTO.getIdPlayer());
-			device.setHeartbeat(deviceDTO.getHeartbeat());
-			device.setPressure(deviceDTO.getPressure());
-			device.setBreath(deviceDTO.getBreath());
+			device.setId(deviceDTO.getId());
 
 		}
 		return device;
 	}
-	
-	public static List<DeviceDTO> toListDTO(List<Device> list){
+
+	public static List<DeviceDTO> toListDTO(List<Device> list) {
 		List<DeviceDTO> listDeviceDTO = new ArrayList<>();
 		if (!list.isEmpty()) {
-			for (Device device: list) {
+			for (Device device : list) {
 				listDeviceDTO.add(ConverterDevice.toDTO(device));
 			}
 		}
 		return listDeviceDTO;
 	}
-	
+
 	public static List<Device> toListEntity(List<DeviceDTO> listDeviceDTO) {
 		List<Device> list = new ArrayList<>();
 		if (!listDeviceDTO.isEmpty()) {
@@ -55,5 +51,3 @@ public class ConverterDevice {
 		return list;
 	}
 }
-
-

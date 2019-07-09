@@ -24,12 +24,12 @@
 
 <H1>PLAYER LOGIN</H1>
 
-	<form class="form-signin" action="/User/login" method="post">
+	<form class="form-signin" action="/LogPlayer/login" method="post">
 		<h1 class="h3 mb-3 font-weight-normal"></h1>
 
-		<label for="inputUser" class="sr-only">NickName</label> <input
-			type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus> <label
+		<label for="inputPlayer" class="sr-only">NickName</label> <input
+			type="text" name="nickname" id="inputPlayer" class="form-control"
+			placeholder="Nickname" required autofocus> <label
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" name="password" id="inputPassword"
 			class="form-control" placeholder="Password" required> <input

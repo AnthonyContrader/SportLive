@@ -9,15 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PlayerDTO {
 
-	private Integer id;
+private int id;
+private int idPlayer;
+private String nickname;
+private String password;
+private String playertype;
+private int score;
+
+public PlayerDTO(String nickname, String password, String playertype, int score) {
+	super();
+	this.nickname = nickname;
+	this.password = password;
+	this.playertype = playertype;
+	this.score = score;
+}
 	
-	private Integer idPlayer;
-	
-	private String nickname;
-	
-	private String password;
-	
-	private String playertype;
-	
-	private Integer score;
 }

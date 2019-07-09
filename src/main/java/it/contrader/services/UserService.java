@@ -14,10 +14,12 @@ import it.contrader.model.User;
 @Service
 public class UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
 
-	
+	@Autowired
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	public List<UserDTO> getListaUserDTO() {
 		return ConverterUser.toListDTO((List<User>) userRepository.findAll());
@@ -27,7 +29,7 @@ public class UserService {
 		return ConverterUser.toDTO(userRepository.findById(id).get());
 	}
 
-	public UserDTO getByUsernameAndPassword(String username, String password) {
+	public UserDTO getUserByUsernameAndPassword(String username, String password) {
 
 		final User user = userRepository.findUserByUsernameAndPassword(username, password);
 
@@ -46,7 +48,7 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public List<UserDTO> findUserDTOByUsername(String username) {
+	public List<UserDTO> findAllUserByUsername(String username) {
 		
 		final List<User> list = userRepository.findAllByUsername(username);
 		final List<UserDTO> userDTOs = new ArrayList<>();
@@ -55,4 +57,5 @@ public class UserService {
 		
 	
 	}
+
 }

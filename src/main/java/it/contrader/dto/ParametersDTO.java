@@ -1,3 +1,4 @@
+
 package it.contrader.dto;
 
 import lombok.AllArgsConstructor;
@@ -9,21 +10,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ParametersDTO {
 
-
-	private Integer idplayer;
-
-	private Integer data;
+	private int id;
 	
-	private Integer age;
-
-	private Integer height;
+	private int idPlayer;
 	
-	private Integer weight;
+	private int data;
 	
-	private Integer gol;
+	private int age;
 	
-	private Integer gp;
+	private int height;
 	
-	private Integer mp;
-	 
+	private int weight;
+	
+	private int gol;
+	
+	private int gp;
+	
+	private int mp;
+	
+	public ParametersDTO(int data, int age, int height, int weight, int gol, int gp, int mp) {
+		super();
+		this.data = data;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.gol = gol;
+		this.gp = gp;
+		this.mp = mp;
+	}
 }

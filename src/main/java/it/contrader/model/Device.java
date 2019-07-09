@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,20 +15,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+//@NamedQuery(name="Device.findAll", query="SELECT d FROM Device d")
 public class Device {
-
 	@Id
-	@Column(name = "idPlayer")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idPlayer;
+	@Column(name = "id")
+	private int id;
 	
-	
+	@Column(name = "idPlayer")
+	@NotNull
+	private int idPlayer;
+
+
 	@Column(name = "heartbeat")
-	private Integer heartbeat;
-	
+	@NotNull
+	private String heartbeat;
+
 	@Column(name = "pressure")
-	private Integer pressure;
-	
+	@NotNull
+	private String pressure;
+
 	@Column(name = "breath")
-	private Integer breath;
+	@NotNull
+	private String breath;
+
 }

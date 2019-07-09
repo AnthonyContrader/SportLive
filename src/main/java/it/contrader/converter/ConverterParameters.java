@@ -1,6 +1,5 @@
 package it.contrader.converter;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,8 @@ public class ConverterParameters {
 		ParametersDTO parametersDTO = null;
 		if (parameters != null) {
 			parametersDTO = new ParametersDTO();
-			parametersDTO.setIdplayer(parameters.getIdplayer());
+			parametersDTO.setId(parameters.getId());
+			parametersDTO.setIdPlayer(parameters.getIdPlayer());
 			parametersDTO.setData(parameters.getData());
 			parametersDTO.setAge(parameters.getAge());
 			parametersDTO.setHeight(parameters.getHeight());
@@ -21,6 +21,7 @@ public class ConverterParameters {
 			parametersDTO.setGol(parameters.getGol());
 			parametersDTO.setGp(parameters.getGp());
 			parametersDTO.setMp(parameters.getMp());
+			
 		}
 		return parametersDTO;
 	}
@@ -29,7 +30,7 @@ public class ConverterParameters {
 		Parameters parameters = null;
 		if (parametersDTO != null) {
 			parameters = new Parameters();
-			parameters.setIdplayer(parametersDTO.getIdplayer());
+			parameters.setId(parametersDTO.getId());
 			parameters.setData(parametersDTO.getData());
 			parameters.setAge(parametersDTO.getAge());
 			parameters.setHeight(parametersDTO.getHeight());
@@ -37,6 +38,7 @@ public class ConverterParameters {
 			parameters.setGol(parametersDTO.getGol());
 			parameters.setGp(parametersDTO.getGp());
 			parameters.setMp(parametersDTO.getMp());
+
 		}
 		return parameters;
 	}
@@ -61,4 +63,3 @@ public class ConverterParameters {
 		return list;
 	}
 }
-
