@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import it.contrader.model.Device;
 import it.contrader.model.Parameters;
 
-public interface ParametresRepository extends CrudRepository<Device, Integer> {
+public interface ParametersRepository extends CrudRepository<Parameters, Integer> {
 
 	public static List<Parameters> findAllById(int id) {
 		return null;
