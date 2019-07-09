@@ -1,6 +1,9 @@
 package it.contrader.utils;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import java.io.FileReader;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Properties;
 
@@ -18,16 +21,17 @@ public class ConnectionSingleton {
   public static Connection getInstance() {
       if (connection == null) {
           try {
-             Properties properties = new Properties();
-              String vendor="mysql";
+        	  final String resourceName = "application.properties";
+			  ClassLoader loader = Thread.currentThread().getContextClassLoader();
+			  Properties props = new Properties();
+			  	try (InputStream resourceStream = loader.getResourceAsStream(resourceName)) {
+			  		props.load(resourceStream);
+				}
               String driver="com.mysql.jdbc.Driver";
-              String host="127.0.0.1";
-              String port="3306";
-              String dbName="sportlivespring";
-              String username="root";
-              String password ="root";
+              String username=props.getProperty("spring.datasource.username");
+              String password =props.getProperty("spring.datasource.password");
               Class c = Class.forName(driver);
-              String myUrl = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName;
+              String myUrl = props.getProperty("spring.datasource.url");
               DriverManagerDataSource dataSource = new DriverManagerDataSource(myUrl, username, password);
               dataSource.setDriverClassName(driver);
               connection = dataSource.getConnection();
