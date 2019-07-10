@@ -57,15 +57,15 @@ public class HomeController {
 	}
 
 	
-	@RequestMapping(value = "/homeTutor", method = RequestMethod.GET)
-	public String homeTutor(HttpServletRequest request) {
+	@RequestMapping(value = "/homeCoach", method = RequestMethod.GET)
+	public String homeCoach(HttpServletRequest request) {
 		//List<CureDTO> allCure = this.cureService.getListaCureDTO();
 		//request.setAttribute("allCureDTO", allCure);
 		return "homeCoach.jsp";
 	}
 
-	@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
-	public String homeDoctor(HttpServletRequest request) {
+	@RequestMapping(value = "/homePlayer", method = RequestMethod.GET)
+	public String homePlayer(HttpServletRequest request) {
 	//	List<CureDTO> allCure = this.cureService.getListaCureDTO();	
 		//request.setAttribute("allCureDTO", allCure);
 		List<DeviceDTO> allDevice = this.deviceService.getListaDeviceDTO();

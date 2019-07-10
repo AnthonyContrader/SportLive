@@ -93,7 +93,6 @@ public class UserController {
 		String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		
-		
 		final UserDTO userDTO = new UserDTO(username, password, UserType.valueOf(usertype), name, surname);
 		
 		userService.insertUser(userDTO);
@@ -104,20 +103,20 @@ public class UserController {
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
-
+System.out.println("STOCAZZO");
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
-		if(userDTO==null) {
+		if(userDTO == null) {
 			return "index";
 		}
-		final UserType userType = userDTO.getUsertype();
+		final UserType usertype = userDTO.getUsertype();
 
-		if (userType!=null) {
+		if (usertype!=null) {
 			session.setAttribute("utenteCollegato", userDTO);
 
-			switch (userType) {
+			switch (usertype) {
 			case ADMIN:
 				session.setAttribute("utenteCollegato", userDTO);
 				System.out.println(userDTO.getUsertype());
@@ -125,17 +124,24 @@ public class UserController {
 				return "homeAdmin";
 
 			case COACH:
-				return "homeDoctor";
+				return "homeCoach";
 
 			case PLAYER:
-				return "homeTutor";
+				return "homePlayer";
 
 			default:
+				System.out.println("sono passato di qui stronzo");
 				return "index";
 			}
 
+		}else {
+			
 		}
+		
+		System.out.println("sono passato di qui stronzo BASTARDO");
 		return "index";
+	
+
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
