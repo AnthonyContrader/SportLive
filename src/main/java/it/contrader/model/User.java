@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
-public class User {
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 8437461321788516113L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
