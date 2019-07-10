@@ -1,6 +1,6 @@
 package it.contrader.dto;
 
-import it.contrader.cenumerators.PlayerType;
+import it.contrader.enumerators.PlayerType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

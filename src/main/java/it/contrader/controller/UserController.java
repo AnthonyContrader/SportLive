@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.contrader.cenumerators.UserType;
 import it.contrader.dto.UserDTO;
+import it.contrader.enumerators.UserType;
 import it.contrader.services.UserService;
 
 @CrossOrigin

@@ -1,6 +1,6 @@
 package it.contrader.dto;
 
-import it.contrader.cenumerators.UserType;
+import it.contrader.enumerators.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
