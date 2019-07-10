@@ -72,9 +72,7 @@ public class UserController {
 		String usernameUpdate = request.getParameter("username");
 		String passwordUpdate = request.getParameter("password");
 		String usertypeUpdate = request.getParameter("usertype");
-		String nameUpdate = request.getParameter("name");
-		String surnameUpdate = request.getParameter("surname");
-		String ssnUpdate = request.getParameter("ssn");
+
 		
 		final UserDTO user = new UserDTO(usernameUpdate,passwordUpdate,usertypeUpdate);
 		user.setId(idUpdate);
@@ -92,9 +90,7 @@ public class UserController {
 		String username= request.getParameter("username");
 		String password = request.getParameter("password");
 		String usertype = request.getParameter("usertype");
-		String name = request.getParameter("name");
-		String surname = request.getParameter("surname");
-		String ssn = request.getParameter("ssn");
+
 		
 		
 		UserDTO userDTO = new UserDTO(username,password,usertype);
@@ -107,35 +103,46 @@ public class UserController {
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
-
+System.out.println("STOCAZZO");
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
-		final String userType = userDTO.getUsertype();
+		
+		if(userDTO == null) {
+			return "index";
+		}
+		final String usertype = userDTO.getUsertype();
 
-		if (!StringUtils.isEmpty(userType)) {
+		if (!StringUtils.isEmpty(usertype)) {
 			session.setAttribute("utenteCollegato", userDTO);
 
-			switch (userType) {
-			case "admin":
+			switch (usertype) {
+			case "ADMIN":
 				session.setAttribute("utenteCollegato", userDTO);
 				System.out.println(userDTO.getUsertype());
 
 				return "homeAdmin";
 
-			case "doctor":
-				return "homeDoctor";
+			case "COACH":
+				return "homeCoach";
 
-			case "tutor":
-				return "homeTutor";
+			case "PLAYER":
+				return "homePlayer";
 
 			default:
+				System.out.println("sono passato di qui stronzo");
 				return "index";
 			}
 
+		}else {
+			
 		}
+		
+		System.out.println("sono passato di qui stronzo BASTARDO");
 		return "index";
+	
+
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
