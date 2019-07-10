@@ -1,91 +1,66 @@
 package it.contrader.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@Table(name="patology")
-//@NamedQuery(name="Patology.findAll", query="SELECT u FROM Patology u")
+@Table
 public class Parameters {
-	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Integer id;
 
-	@Column(name="idPlayer")
+	@Column
 	@NotNull
 	private Integer idPlayer;
-	
-	@Column(name="data")
-	@NotNull
-	private Integer data;
 
-	@Column(name="age")
+	@Column
+	@NotNull
+	private Timestamp data;
+
+	@Column
 	@NotNull
 	private Integer age;
-	
-	@Column(name="height")
+
+	@Column
 	@NotNull
 	private Integer height;
-	
-	@Column(name="weight")
+
+	@Column
 	@NotNull
 	private Integer weight;
-	
-	@Column(name="gol")
+
+	@Column
 	@NotNull
 	private Integer gol;
 
-	@Column(name="gp")
+	@Column
 	@NotNull
 	private Integer gp;
-	
-	@Column(name="mp")
+
+	@Column
 	@NotNull
 	private Integer mp;
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "idPlayer", insertable =false, updatable = false)
+	private Player player;
 }
-	//bi-directional many-to-one association to Client
-	//@OneToMany(mappedBy="patology")
-	//private List<Cure> cures;
-
-	//bi-directional many-to-one association to Item
-	//@OneToMany(mappedBy="patology")
-	//private List<Device> devices;
-
-	//bi-directional many-to-one association to Order
-	//@OneToMany(mappedBy="patology")
-	//private List<Emergency> emergencys;
-
-	//bi-directional many-to-one association to Project
-	//@OneToMany(mappedBy="patology")
-	//private List<Patology> patologys;
-
-	//bi-directional many-to-one association to Resource
-	//@OneToMany(mappedBy="patology")
-	//private List<Payment> payments;
-
-	//bi-directional many-to-one association to Task
-	//@OneToMany(mappedBy="patology")
-	//private List<Reading> readings;
-
-

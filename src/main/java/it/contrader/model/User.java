@@ -5,9 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import it.contrader.cenumerators.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,35 +18,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
 public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+	@Column
+	private Integer id;
 
-	@Column(name = "username")
+	@Column
 	@NotNull
 	private String username;
 
-	@Column(name = "password")
+	@Column
 	@NotNull
 	private String password;
 
-	@Column(name = "usertype")
+	@Column
 	@NotNull
-	private String usertype;
+	private UserType usertype;
 
-//	@Column(name = "name")
-//	@NotNull
-//	private String name;
-//
-//	@Column(name = "surname")
-//	@NotNull
-//	private String surname;
+	@Column
+	@NotNull
+	private String name;
 
-//	@Column(name = "ssn")
-//	@NotNull
-//	private String ssn;
+	@Column
+	@NotNull
+	private String surname;
 
 }

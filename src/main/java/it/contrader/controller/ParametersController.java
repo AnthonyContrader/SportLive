@@ -105,11 +105,11 @@ public class ParametersController {
 		int mp = Integer.parseInt(request.getParameter("mp"));
 
 
-		ParametersDTO parametersDTO = new ParametersDTO(id, idPlayer, data, age, height, weight, gol, gp, mp);
-
-		parametersService.insertParameters(parametersDTO);
-
-		request.setAttribute("parameters", getParameters());
+//		ParametersDTO parametersDTO = new ParametersDTO(id, idPlayer, data, age, height, weight, gol, gp, mp);
+//
+//		parametersService.insertParameters(parametersDTO);
+//
+//		request.setAttribute("parameters", getParameters());
 
 		return "reading/readingManagement";
 	}

@@ -1,27 +1,30 @@
 package it.contrader.dto;
 
+import it.contrader.cenumerators.PlayerType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class PlayerDTO {
 
-private int id;
-private int idPlayer;
-private String nickname;
-private String password;
-private String playertype;
-private int score;
+	private Integer id;
 
-public PlayerDTO(String nickname, String password, String playertype, int score) {
-	super();
-	this.nickname = nickname;
-	this.password = password;
-	this.playertype = playertype;
-	this.score = score;
-}
-	
+	@NonNull
+	private String username;
+
+	@NonNull
+	private PlayerType playertype;
+
+	@NonNull
+	private Integer idCoach;
+
+	@NonNull
+	private Integer score;
+
 }

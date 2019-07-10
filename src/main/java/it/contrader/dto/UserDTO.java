@@ -1,34 +1,34 @@
 package it.contrader.dto;
 
-import java.util.List;
-
-
+import it.contrader.cenumerators.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class UserDTO {
 
 	
 	private int id;
 
+	@NonNull
 	private String username;
-
+	
+	@NonNull
 	private String password;
 
-	private String usertype;
-	
+	@NonNull
+	private UserType usertype;
 
-	public UserDTO( String username, String password, String usertype) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.usertype = usertype;
-	}
-	
-	
-	
+	@NonNull
+	private String name;
+
+	@NonNull
+	private String surname;
+
 }

@@ -76,11 +76,11 @@ public class PlayerController {
 		int scoreUpdate = Integer.parseInt(request.getParameter("score"));
 		
 		
-		final PlayerDTO player = new PlayerDTO(idUpdate,IdPlayer,nicknameUpdate,passwordUpdate,playertypeUpdate,scoreUpdate);
-		player.setId(idUpdate);
-		
-		playerService.updatePlayer(player);
-		request.setAttribute("user", getPlayer());
+//		final PlayerDTO player = new PlayerDTO(idUpdate, username, playertype, idCoach, score);
+//		player.setId(idUpdate);
+//		
+//		playerService.updatePlayer(player);
+//		request.setAttribute("user", getPlayer());
 		return "player/playerManagement";	
 	 }
 	}

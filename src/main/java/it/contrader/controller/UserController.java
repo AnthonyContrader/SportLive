@@ -1,20 +1,20 @@
 package it.contrader.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.stereotype.Controller;
 
+import it.contrader.cenumerators.UserType;
 import it.contrader.dto.UserDTO;
 import it.contrader.services.UserService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @CrossOrigin
 @Controller
@@ -39,7 +39,7 @@ public class UserController {
 		List<UserDTO> tmp = userService.getListaUserDTO();
 		List<UserDTO> userList = new ArrayList<>();
 		for (UserDTO user : tmp) {
-			if (user.getUsertype() != "") {
+			if (user.getUsertype() != null) {
 				userList.add(user);
 			}
 		}
@@ -69,15 +69,13 @@ public class UserController {
 	public String updateUser(HttpServletRequest request)
 	{
 		int idUpdate = Integer.parseInt(request.getParameter("id"));
-		String usernameUpdate = request.getParameter("username");
-		String passwordUpdate = request.getParameter("password");
-		String usertypeUpdate = request.getParameter("usertype");
-		String nameUpdate = request.getParameter("name");
-		String surnameUpdate = request.getParameter("surname");
-		String ssnUpdate = request.getParameter("ssn");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String usertype = request.getParameter("usertype");
+		String name = request.getParameter("name");
+		String surname = request.getParameter("surname");
 		
-		final UserDTO user = new UserDTO(usernameUpdate,passwordUpdate,usertypeUpdate);
-		user.setId(idUpdate);
+		final UserDTO user = new UserDTO(idUpdate, username, password, UserType.valueOf(usertype), name, surname);
 		
 		userService.updateUser(user);
 		request.setAttribute("user", getUsers());
@@ -94,10 +92,9 @@ public class UserController {
 		String usertype = request.getParameter("usertype");
 		String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
-		String ssn = request.getParameter("ssn");
 		
 		
-		UserDTO userDTO = new UserDTO(username,password,usertype);
+		final UserDTO userDTO = new UserDTO(username, password, UserType.valueOf(usertype), name, surname);
 		
 		userService.insertUser(userDTO);
 		
@@ -112,22 +109,25 @@ public class UserController {
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
-		final String userType = userDTO.getUsertype();
+		if(userDTO==null) {
+			return "index";
+		}
+		final UserType userType = userDTO.getUsertype();
 
-		if (!StringUtils.isEmpty(userType)) {
+		if (userType!=null) {
 			session.setAttribute("utenteCollegato", userDTO);
 
 			switch (userType) {
-			case "admin":
+			case ADMIN:
 				session.setAttribute("utenteCollegato", userDTO);
 				System.out.println(userDTO.getUsertype());
 
 				return "homeAdmin";
 
-			case "doctor":
+			case COACH:
 				return "homeDoctor";
 
-			case "tutor":
+			case PLAYER:
 				return "homeTutor";
 
 			default:

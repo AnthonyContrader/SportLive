@@ -1,19 +1,17 @@
 package it.contrader.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import it.contrader.cenumerators.PlayerType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,36 +20,37 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="player")
-//@NamedQuery(name="Reading.findAll", query="SELECT r FROM Reading r")
+@Table
 public class Player {
-	private static final long serialVersionUID = 1L;
-
 	
 	@Id
-	@Column(name = "id")
+	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	@Column(name = "idPlayer")
+	
+	@Column
 	@NotNull
-	private Integer idPlayer;
-
-	@Column(name = "nickname")
-	@NotNull
-	private String nickname;
+	private String username;
 
 	@NotNull
-	@Column(name = "password")
-	private String password;
+	@Column
+	private PlayerType playertype;
 	
 	@NotNull
-	@Column(name = "playertype")
-	private String playertype;
+	@Column
+	private Integer idCoach;
 	
 	@NotNull
-	@Column(name = "score")
+	@Column
 	private Integer score;
+	
+	@ManyToOne
+	@JoinColumn(name = "idCoach", referencedColumnName = "id", insertable =false, updatable = false)
+	private User coach;
+	
+	@OneToOne
+	@JoinColumn(name = "username", insertable =false, updatable = false)
+	private User userPlayer;
 	
 	
 	

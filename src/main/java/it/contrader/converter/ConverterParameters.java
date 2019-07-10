@@ -13,7 +13,7 @@ public class ConverterParameters {
 		if (parameters != null) {
 			parametersDTO = new ParametersDTO();
 			parametersDTO.setId(parameters.getId());
-			parametersDTO.setIdPlayer(parameters.getIdPlayer());
+			parametersDTO.setIdPlayer(parameters.getPlayer().getId());
 			parametersDTO.setData(parameters.getData());
 			parametersDTO.setAge(parameters.getAge());
 			parametersDTO.setHeight(parameters.getHeight());

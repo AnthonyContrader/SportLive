@@ -3,29 +3,26 @@ package it.contrader.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class DeviceDTO {
-	
-	private int id;
 
-	private int idPlayer;
-	
+	private Integer id;
+	@NonNull
+	private Integer idPlayer;
+
+	@NonNull
 	private String heartbeat;
-	
+
+	@NonNull
 	private String pressure;
 
+	@NonNull
 	private String breath;
-	
 
-	public DeviceDTO(String heartbeat, String pressure, String breath) {
-		super();
-		this.heartbeat = heartbeat;
-		this.pressure = pressure;
-		this.breath = breath;
-	}
-	
-	
 }
