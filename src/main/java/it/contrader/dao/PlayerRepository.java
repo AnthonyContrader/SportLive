@@ -8,4 +8,8 @@ import it.contrader.model.Player;
 
 public interface PlayerRepository extends CrudRepository<Player, Integer> {
 
+	public Player findPlayerByUsername(String usersname);
+
+	public List<Player> findAllPlayerByIdCoach(Integer idCoach);
+
 }

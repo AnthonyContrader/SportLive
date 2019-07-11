@@ -4,30 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.PlayerDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.Player;
+import it.contrader.model.User;
 
 public class ConverterPlayer {
 
 	public static PlayerDTO toDTO(Player player) {
-		PlayerDTO playerDTO = null;
-		if (player != null) {
-			playerDTO = new PlayerDTO();
-			playerDTO.setId(player.getId());
-			playerDTO.setPlayertype(player.getPlayertype());
-			playerDTO.setScore(player.getScore());
-		}
-		return playerDTO;
+		UserDTO coachDTO = new UserDTO(player.getCoach().getId(), player.getCoach().getUsername(), player.getCoach().getPassword(), player.getCoach().getUsertype(), player.getCoach().getName(), player.getCoach().getSurname());
+		UserDTO userDTO = new UserDTO(player.getUserPlayer().getId(), player.getUserPlayer().getUsername(), player.getUserPlayer().getPassword(), player.getUserPlayer().getUsertype(), player.getUserPlayer().getName(), player.getUserPlayer().getSurname());
+		return new PlayerDTO(player.getId(), player.getUsername(), player.getPlayertype(), player.getIdCoach(), player.getScore(), coachDTO, userDTO);
 	}
 
 	public static Player toEntity(PlayerDTO playerDTO) {
-		Player player = null;
-		if (playerDTO != null) {
-			player = new Player();
-			player.setId(playerDTO.getId());
-			player.setPlayertype(playerDTO.getPlayertype());
-			player.setScore(playerDTO.getScore());
-		}
-		return player;
+		User coach = new User(playerDTO.getCoach().getId(), playerDTO.getCoach().getUsername(), playerDTO.getCoach().getPassword(), playerDTO.getCoach().getUsertype(), playerDTO.getCoach().getName(), playerDTO.getCoach().getSurname());
+		User user = new User(playerDTO.getUserPlayer().getId(), playerDTO.getUserPlayer().getUsername(), playerDTO.getUserPlayer().getPassword(), playerDTO.getUserPlayer().getUsertype(), playerDTO.getUserPlayer().getName(), playerDTO.getUserPlayer().getSurname());
+		return new Player(playerDTO.getId(), playerDTO.getUsername(), playerDTO.getPlayertype(), playerDTO.getIdCoach(), playerDTO.getScore(), coach, user );
 	}
 
 	public static List<PlayerDTO> toListDTO(List<Player> list) {

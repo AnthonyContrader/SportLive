@@ -20,8 +20,8 @@ public class PlayerService {
 		this.playerRepository = playerRepository;
 	}
 
-	public List<PlayerDTO> getListaPlayerDTO() {
-		return ConverterPlayer.toListDTO((List<Player>) playerRepository.findAll());
+	public List<PlayerDTO> getListaPlayerDTOByIdCoach(Integer idCoach) {
+		return ConverterPlayer.toListDTO((List<Player>) playerRepository.findAllPlayerByIdCoach(idCoach));
 	}
 
 	public PlayerDTO getPlayerDTOById(Integer id) {
