@@ -31,34 +31,35 @@ public class UserController {
 
 	@RequestMapping(value = "/userManagement", method = RequestMethod.POST)
 	public String userManagement(HttpServletRequest request) {
-		request.setAttribute("user", getUsers());
+		request.setAttribute("user", userService.getListToAdmin());
 		return "user/userManagement";
 	}
 
-	public List<UserDTO> getUsers() {
-		List<UserDTO> tmp = userService.getListaUserDTO();
-		List<UserDTO> userList = new ArrayList<>();
-		for (UserDTO user : tmp) {
-			if (user.getUsertype() != null) {
-				userList.add(user);
-			}
-		}
-
-		return userList;
-	}
+//	public List<UserDTO> getUsers() {
+//		List<UserDTO> tmp = userService.getListaUserDTO();
+//		List<UserDTO> userList = new ArrayList<>();
+//		for (UserDTO user : tmp) {
+//			if (user.getUsertype() != null) {
+//				userList.add(user);
+//			}
+//		}
+//
+//		return userList;
+//	}
 
 
 	@RequestMapping(value ="/deleteUser", method = RequestMethod.GET)
 	public String deleteUser(HttpServletRequest request) {
 		int idUser = Integer.parseInt(request.getParameter("id"));
 		userService.deleteUserById(idUser);
-		request.setAttribute("user", getUsers());
+		request.setAttribute("user", userService.getListToAdmin());
 		return "user/userManagement";
 	}
 	
 	
 	@RequestMapping(value = "/redirectUpdate", method = RequestMethod.GET)
 	public String redirectUpdate(HttpServletRequest request) {
+		System.out.println("sono entrato nel redirectUpdate");
 		int idUser = Integer.parseInt(request.getParameter("id"));
 		UserDTO user = userService.getUserDTOById(idUser);
 		request.setAttribute("user", user);
@@ -78,7 +79,7 @@ public class UserController {
 		final UserDTO user = new UserDTO(idUpdate, username, password, UserType.valueOf(usertype), name, surname);
 		
 		userService.updateUser(user);
-		request.setAttribute("user", getUsers());
+		request.setAttribute("user", userService.getListToAdmin());
 		return "user/userManagement";	
 		
 	}
@@ -97,7 +98,7 @@ public class UserController {
 		
 		userService.insertUser(userDTO);
 		
-		request.setAttribute("user", getUsers());
+		request.setAttribute("user", userService.getListToAdmin());
 		
 		return "user/userManagement";		
 	}

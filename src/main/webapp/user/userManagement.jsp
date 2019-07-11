@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Management</title>
+<title>Home ADMIN</title>
 	<%
 		List<UserDTO> listUser = (List<UserDTO>) request.getAttribute("user");
 	 %>
@@ -20,7 +20,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>User Management</title>
+  <title>Home ADMIN</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/user/userManagement.jsp" class="logo">SPORTLIVE</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -100,7 +100,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-laptop"></i> Admin Management</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i>Home</a></li>
+              <li><i class="fa fa-home"></i>Home</li>
               <li><i class="fa fa-laptop"></i>User Management</li>
             </ol>
           </div>
@@ -112,6 +112,7 @@
 		<tr><th>Id</th><th>Username</th><th>Password</th><th>User type</th><th>Name</th><th>Surname</th><th>SSN</th><th colspan=2>Manage</th></tr>
 		<%
 			for(UserDTO user: listUser){
+				if(!user.getUsertype().equals("2")){
 		 %>
 		 	<tr>
 		 		<td><%=user.getId()%></td>
@@ -122,13 +123,15 @@
 		 		<td><%=user.getSurname()%></td>
 		 		
 		 		<td><a class="btn btn-primary btn-lg btn-block" href="/User/deleteUser?id=<%=user.getId() %>">Delete</a></td>
-		 		<td><a class="btn btn-primary btn-lg btn-block"href="/User/redirectUpdate?id=<%=user.getId()%>">Update</a></td>
+		 		<td><a class="btn btn-primary btn-lg btn-block" href="/User/redirectUpdate?id=<%=user.getId() %>">Update</a></td>
 		 	</tr>
 		<% 
+				}
 			}
 		%>
 	</table>
-	<a class="btn btn-primary btn-lg btn-block" href="/user/insertUser.jsp">Insert new User</a>
+	<a class="btn btn-primary btn-lg btn-block" href="/user/ins
+	ertUser.jsp">Insert new User</a>
 	<br>
 	<a class="btn btn-primary btn-lg btn-block" href="/homeAdmin.jsp">Back to home</a>
 	<br>

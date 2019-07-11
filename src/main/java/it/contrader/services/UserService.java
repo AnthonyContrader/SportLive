@@ -2,6 +2,7 @@ package it.contrader.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.ConverterUser;
 import it.contrader.dao.UserRepository;
 import it.contrader.dto.UserDTO;
+import it.contrader.enumerators.UserType;
 import it.contrader.model.User;
 
 @Service
@@ -23,6 +25,13 @@ public class UserService {
 
 	public List<UserDTO> getListaUserDTO() {
 		return ConverterUser.toListDTO((List<User>) userRepository.findAll());
+	}
+	
+	public List<UserDTO> getListToAdmin(){
+		List<UserType> list = new ArrayList<UserType>();
+		list.add(UserType.ADMIN);
+		list.add(UserType.COACH);
+		return ConverterUser.toListDTO((List<User>) userRepository.findAllByUsertype(list));
 	}
 
 	public UserDTO getUserDTOById(Integer id) {

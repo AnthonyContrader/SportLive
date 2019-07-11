@@ -118,9 +118,6 @@
 			<tr>
 				<td>Surname</td><td><input type="text" name="surname" placeholder="Surname"></td>
 			</tr>
-			<tr>
-				<td>SSN</td><td><input type="text" name="ssn" placeholder="Ssn"></td>
-			</tr>
 		</table>
 		<br>
 		<button class="btn btn-primary btn-lg btn-block" type="submit">Insert</button>

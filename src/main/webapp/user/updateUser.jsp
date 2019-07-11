@@ -61,7 +61,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/homeAdmin.jsp" class="logo">SPORTLIVE</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">
@@ -130,11 +130,6 @@
 			<tr>
 				<td><b>Surname:</b></td> 
 				<td> <input type="text" size="40" maxlength="40" name="surname" value="<%=userUpdate.getSurname()%>" /></td>
-			</tr>
-			
-			<tr>
-				<td><b>SSN:</b></td> 
-				<td> <input type="text" size="40" maxlength="40" name="ssn" value="<%=userUpdate.getSsn() %>" /></td>
 			</tr>
 			
 			
