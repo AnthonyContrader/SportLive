@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import it.contrader.enumerators.PlayerType;
@@ -20,9 +23,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
-public class Player {
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
+public class Player implements Serializable{
 	
+	private static final long serialVersionUID = 2731954642707502865L;
+
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +54,7 @@ public class Player {
 	private User coach;
 	
 	@OneToOne
-	@JoinColumn(name = "username", insertable =false, updatable = false)
+	@JoinColumn(name = "username", referencedColumnName = "username", insertable =false, updatable = false)
 	private User userPlayer;
 	
 	
