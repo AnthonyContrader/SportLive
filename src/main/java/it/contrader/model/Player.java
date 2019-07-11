@@ -54,7 +54,7 @@ public class Player implements Serializable{
 	private User coach;
 	
 	@OneToOne
-	@JoinColumn(name = "username", referencedColumnName = "username", insertable =false, updatable = false)
+	@JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
 	private User userPlayer;
 	
 	

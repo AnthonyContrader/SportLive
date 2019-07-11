@@ -1,8 +1,17 @@
+<%@page import="org.springframework.util.StringUtils"%>
 <%@page import="it.contrader.dto.UserDTO"%>
 <%@ include file="/function/header.jsp"%>
 <body>
 	<%
-		UserDTO userDTO = (UserDTO) request.getAttribute("userDTO");
+		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
+		String viewParam = request.getParameter("viewParam");
+		if(StringUtils.isEmpty(viewParam)){
+			viewParam = (String) request.getAttribute("viewParam");
+		}
+		if(StringUtils.isEmpty(viewParam)){
+			viewParam="list";
+		}
+		System.out.println("viewParam="+viewParam);
 	%>
 	<!-- container section start -->
 	<section id="container" class="">
@@ -36,9 +45,13 @@
 						<h3 class="page-header">
 							<i class="fa fa-list-alt"></i> Dashboard
 						</h3>
-						<jsp:include page="/player/playerManagement/" flush="true">
-							<jsp:param name="idCoach" value="<%=userDTO.getId()%>" />
-						</jsp:include>
+						<% if(viewParam.equals("list")){ %>
+								<jsp:include page="/player/playerManagement/" flush="true"/>
+						<% } else if(viewParam.equals("insert")){ %>
+								<jsp:include page="/player/insertPlayer.jsp" flush="true"/>
+						<% } else if(viewParam.equals("update")){ %>
+								<jsp:include page="/player/updatePlayer.jsp" flush="true"/>
+						<% } %>
 					</div>
 				</div>
 			</section>
