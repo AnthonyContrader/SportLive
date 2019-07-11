@@ -29,7 +29,7 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/userManagement", method = RequestMethod.POST)
 	public String userManagement(HttpServletRequest request) {
 		request.setAttribute("user", getUsers());
 		return "user/userManagement";
@@ -103,7 +103,6 @@ public class UserController {
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
-System.out.println("STOCAZZO");
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
@@ -111,6 +110,9 @@ System.out.println("STOCAZZO");
 		if(userDTO == null) {
 			return "index";
 		}
+		
+		request.setAttribute("userDTO", userDTO);
+		
 		final UserType usertype = userDTO.getUsertype();
 
 		if (usertype!=null) {

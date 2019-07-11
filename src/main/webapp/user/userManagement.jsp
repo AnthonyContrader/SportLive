@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List" %>
 <%@	page import="it.contrader.dto.UserDTO"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,7 +120,7 @@
 		 		<td><%=user.getUsertype()%></td>
 		 		<td><%=user.getName()%></td>
 		 		<td><%=user.getSurname()%></td>
-		 		<td><%=user.getSsn()%></td>
+		 		
 		 		<td><a class="btn btn-primary btn-lg btn-block" href="/User/deleteUser?id=<%=user.getId() %>">Delete</a></td>
 		 		<td><a class="btn btn-primary btn-lg btn-block"href="/User/redirectUpdate?id=<%=user.getId()%>">Update</a></td>
 		 	</tr>

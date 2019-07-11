@@ -16,6 +16,9 @@ public class ConverterUser {
 			userDTO.setUsername(user.getUsername());
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());
+			userDTO.setName(user.getName());
+			userDTO.setSurname(user.getSurname());
+
 
 		}
 		return userDTO;
@@ -29,6 +32,10 @@ public class ConverterUser {
 			user.setUsername(userDTO.getUsername());
 			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());
+			user.setName(userDTO.getName());
+			user.setSurname(userDTO.getSurname());
+
+
 
 		}
 		return user;
