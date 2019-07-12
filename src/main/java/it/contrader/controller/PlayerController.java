@@ -48,7 +48,7 @@ public class PlayerController {
 		}
 		int idCoach = Integer.parseInt(idParam);
 		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(idCoach));
-		return "player/playerManagement";
+		return "player/playerDetayl";
 	}
 
 	@RequestMapping(value ="/", method = RequestMethod.DELETE)
