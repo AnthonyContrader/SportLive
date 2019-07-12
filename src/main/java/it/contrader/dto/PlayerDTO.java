@@ -27,10 +27,8 @@ public class PlayerDTO {
 	@NonNull
 	private Integer score;
 
-	@NonNull
 	private UserDTO coach;
 
-	@NonNull
 	private UserDTO userPlayer;
 
 }

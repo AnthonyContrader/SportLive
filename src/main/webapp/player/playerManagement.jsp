@@ -1,6 +1,9 @@
+<%@page import="it.contrader.dto.UserDTO"%>
 <%@ page import="java.util.List"%>
 <%@	page import="it.contrader.dto.PlayerDTO"%>
+<%-- <jsp:include page="/player/playerManagement" flush="true"/> --%>
 <%
+	UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
 	List<PlayerDTO> listPlayer = (List<PlayerDTO>) request.getAttribute("listPlayer");
 %>
 
@@ -25,9 +28,9 @@
 				<td><%=player.getPlayertype().name()%></td>
 				<td><%=player.getScore()%></td>
 				<td><a class="btn btn-primary btn-lg btn-block"
-					href="/Player/deletePlayer?id=<%=player.getId()%>">Delete</a></td>
+					href="/player/deletePlayer?id=<%=player.getId()%>">Delete</a></td>
 				<td><a class="btn btn-primary btn-lg btn-block"
-					href="/Player/redirectUpdate?id=<%=player.getId()%>">Update</a></td>
+					href="/player/redirectUpdate?id=<%=player.getId()%>">Update</a></td>
 			</tr>
 			<%
 				}
@@ -35,7 +38,7 @@
 		</table>
 		<a class="btn btn-primary btn-lg btn-block"
 			href="/player/insertPlayer.jsp">Insert new Player</a> <br> <a
-			class="btn btn-primary btn-lg btn-block" href="/homeAdmin.jsp">Back
+			class="btn btn-primary btn-lg btn-block" href="/homeCoach.jsp">Back
 			to home</a> <br>
 	</div>
 </div>
