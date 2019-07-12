@@ -1,19 +1,24 @@
 package it.contrader.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.contrader.dto.PlayerDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.services.PlayerService;
-import it.contrader.services.UserService;
+
+import org.springframework.stereotype.Controller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin
 @Controller
@@ -21,17 +26,21 @@ import it.contrader.services.UserService;
 public class PlayerController {
 
 	private final PlayerService playerService;
-	private final UserService userService;
+	private HttpSession session;
 
 	@Autowired
-	public PlayerController(PlayerService playerService, UserService userService) {
+	public PlayerController(PlayerService playerService) {
 		this.playerService = playerService;
-		this.userService = userService;
+	}
+
+	@RequestMapping(value = "/{id}")
+	public String getPlayer(@PathVariable Integer id, HttpServletRequest request) {
+		request.setAttribute("player", playerService.getPlayerDTOById(id));
+		return "player/playerManagement";
 	}
 
 	@RequestMapping(value = "/playerManagement", method = RequestMethod.POST)
 	public String listByCoach(HttpServletRequest request) throws Exception {
-<<<<<<< HEAD
 		String idParam = (String)request.getParameter("idCoach");
 		System.out.println(idParam);
 		if(StringUtils.isEmpty(idParam)) {
@@ -40,61 +49,31 @@ public class PlayerController {
 		int idCoach = Integer.parseInt(idParam);
 		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(idCoach));
 		return "player/playerDetayl";
-=======
-		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
-		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(userDTO.getId()));
-		request.setAttribute("viewParam", "list");
-		return "player/playerManagement";
->>>>>>> 5c16f9175a6b62a940b0d7fd072ae2d19b7cc4d7
 	}
 
-	@RequestMapping(value = "/deletePlayer", method = RequestMethod.GET)
+	@RequestMapping(value ="/", method = RequestMethod.DELETE)
 	public String deletePlayer(HttpServletRequest request) {
 		int idPlayer = Integer.parseInt(request.getParameter("id"));
 		playerService.deletePlayerById(idPlayer);
-		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
-		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(userDTO.getId()));
-		request.setAttribute("viewParam", "list");
-		return "homeCoach";
+		return "player/playerManagement";
 	}
-
-	@RequestMapping(value = "/redirectUpdate", method = RequestMethod.GET)
-	public String redirectUpdate(HttpServletRequest request) {
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("playerDTO", playerService.getPlayerDTOById(id));
-		request.setAttribute("viewParam", "update");
-		return "homeCoach";
-	}
-
+	
 	@RequestMapping(value = "/updatePlayer", method = RequestMethod.POST)
-	public String updatePlayer(@Valid @ModelAttribute("player") PlayerDTO playerDTO, HttpServletRequest request) {
-//		final PlayerDTO playerDTO = (PlayerDTO) request.getAttribute("playerDTO");
-		playerService.updatePlayer(playerDTO);
-		UserDTO userDTO = userService.getUserDTOById(playerDTO.getUserPlayer().getId());
-		userDTO.setName(playerDTO.getUserPlayer().getName());
-		userDTO.setSurname(playerDTO.getUserPlayer().getSurname());
-		userService.updateUser(userDTO);
+	public String updatePlayer(HttpServletRequest request)
+	{
+		int idUpdate = Integer.parseInt(request.getParameter("id"));
+		int IdPlayer = Integer.parseInt(request.getParameter("idplayer"));
+		String nicknameUpdate = request.getParameter("nickname");
+		String passwordUpdate = request.getParameter("password");
+		String playertypeUpdate = request.getParameter("playertype");
+		int scoreUpdate = Integer.parseInt(request.getParameter("score"));
 		
-		userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
-		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(userDTO.getId()));
-		request.setAttribute("viewParam", "list");
-		return "homeCoach";
+		
+//		final PlayerDTO player = new PlayerDTO(idUpdate, username, playertype, idCoach, score);
+//		player.setId(idUpdate);
+//		
+//		playerService.updatePlayer(player);
+//		request.setAttribute("user", getPlayer());
+		return "player/playerManagement";	
+	 }
 	}
-
-	@RequestMapping(value = "/redirectInsert", method = RequestMethod.GET)
-	public String redirectInsert(HttpServletRequest request) {
-		request.setAttribute("playerDTO", new PlayerDTO());
-		request.setAttribute("viewParam", "insert");
-		return "homeCoach";
-	}
-
-	@RequestMapping(value = "/insertPlayer", method = RequestMethod.POST)
-	public String insertPlayer(HttpServletRequest request) {
-		final PlayerDTO playerDTO = (PlayerDTO) request.getAttribute("playerDTO");
-		playerService.updatePlayer(playerDTO);
-		UserDTO userDTO = (UserDTO) request.getSession().getAttribute("utenteCollegato");
-		request.setAttribute("listPlayer", playerService.getListaPlayerDTOByIdCoach(userDTO.getId()));
-		request.setAttribute("viewParam", "list");
-		return "insertPlayer";
-	}
-}
