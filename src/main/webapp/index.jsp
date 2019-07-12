@@ -31,12 +31,14 @@
 	<link rel="stylesheet" type="text/css" href="/login/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body style="background-color: #4D4199;">
+<body style="background-color: #262626;">
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
+			  
 				<form class="login100-form validate-form" action="/User/login" method="post">
+				     
 					<span class="login100-form-title p-b-43">
 						Please login to your account
 					</span>
@@ -93,10 +95,8 @@
 						</a>
 					</div>
 				</form>
+				<img alt="" src="login/img/logologo.png" width="300px"  height="300px" align="middle" class="center">
 				
-				<div class="login100-more" style="background-image: url('login/img/logo_full.svg'); width: 352px;
-    height:800px; align: center">
-				</div>
 			</div>
 		</div>
 	</div>
