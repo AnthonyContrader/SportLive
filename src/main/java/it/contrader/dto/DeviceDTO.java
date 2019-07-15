@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class DeviceDTO {
 
 	private Integer id;
+	
 	@NonNull
 	private Integer idPlayer;
 

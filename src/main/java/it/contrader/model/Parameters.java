@@ -33,7 +33,6 @@ public class Parameters {
 	private Integer idPlayer;
 
 	@Column
-	@NotNull
 	private Timestamp data;
 
 	@Column

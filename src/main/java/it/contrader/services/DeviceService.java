@@ -1,6 +1,5 @@
 package it.contrader.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,6 @@ public class DeviceService {
 		return ConverterDevice.toDTO(deviceRepository.findById(id).get());
 	}
 
-
 	public boolean insertDevice(DeviceDTO deviceDTO) {
 		return deviceRepository.save(ConverterDevice.toEntity(deviceDTO)) != null;
 	}
@@ -37,19 +35,21 @@ public class DeviceService {
 	public boolean updateDevice(DeviceDTO deviceDTO) {
 		return deviceRepository.save(ConverterDevice.toEntity(deviceDTO)) != null;
 	}
-	
+
 	public void deleteDeviceById(Integer id) {
 		deviceRepository.deleteById(id);
 	}
-	
-public List<DeviceDTO> findAllById(int id) {
-		
+
+	public List<DeviceDTO> findAllById(int id) {
+
 		final List<DeviceDTO> list = ConverterDevice.toListDTO(DeviceRepository.findAllById(id));
-		//final List<SensordataDTO> sensordataDTOs = new ArrayList<>();
-		//list.forEach(i -> sensordataDTOs.add(ConverterSensordata.toDTO(i)));
+		// final List<SensordataDTO> sensordataDTOs = new ArrayList<>();
+		// list.forEach(i -> sensordataDTOs.add(ConverterSensordata.toDTO(i)));
 		return list;
-		
-	
+
 	}
 
+	public List<DeviceDTO> getListToDevice() {
+		return ConverterDevice.toListDTO((List<Device>) deviceRepository.findAll());
+	}
 }
