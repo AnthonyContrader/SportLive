@@ -80,7 +80,7 @@
 					</div>
 					
 					<div>
-							<a href="#" class="txt3">
+							<a href="/SingIn.jsp" class="txt3">
 								Sign in
 							</a>
 					</div>

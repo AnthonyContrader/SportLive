@@ -14,7 +14,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 			  
-				<form class="login100-form validate-form" action="/User/login" method="post">
+				<form class="insert-form" action="/User/insertUser" method="post">
 				     
 					<span class="login100-form-title p-b-43">
 						Please insert your data 
@@ -22,13 +22,13 @@
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid password is required">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="name">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Name</span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid password is required">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="surname">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Surname</span>
 					</div>
@@ -39,6 +39,11 @@
 						<span class="label-input100">Username</span>
 					</div>
 					
+					<div class="wrap-input100 validate-input" data-validate = "Valid password is required">
+						<input class="input100" type="text" name="usertype">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Usertype</span>
+					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="password">

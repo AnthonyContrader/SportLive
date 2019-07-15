@@ -102,6 +102,25 @@ public class UserController {
 		
 		return "user/userManagement";		
 	}
+	
+	@RequestMapping(value = "/singInUser", method = RequestMethod.POST)
+	public String singInUser(HttpServletRequest request) {
+		
+		String username= request.getParameter("username");
+		String password = request.getParameter("password");
+		String usertype = request.getParameter("usertype");
+		String name = request.getParameter("name");
+		String surname = request.getParameter("surname");
+		
+		final UserDTO userDTO = new UserDTO(username, password, UserType.valueOf(usertype), name, surname);
+		
+		userService.insertUser(userDTO);
+		
+		request.setAttribute("user", userService.getListToAdmin());
+		
+		return "/index.jsp";		
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
 		session = request.getSession();
