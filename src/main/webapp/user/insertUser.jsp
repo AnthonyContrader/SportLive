@@ -53,7 +53,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/homeAdmin.jsp" class="logo">WESER</a>
+      <a href="/homeAdmin.jsp" class="logo">SPORTLIVE</a>
       <!--logo end-->
 
       <div class="top-nav notification-row">

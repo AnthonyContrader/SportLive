@@ -12,9 +12,12 @@
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
+				<th>IdCoach</th>
 				<th>UserName</th>
 				<th>Name</th>
-				<th>Type</th>
+				<th>Surname</th>
+				<th>Password</th>
+				<th>Playertype</th>
 				<th>Score</th>
 				<th colspan="2">Manage</th>
 			</tr>
@@ -23,9 +26,12 @@
 			%>
 			<tr>
 				<td><%=player.getId()%></td>
+				<td><%=player.getIdCoach()%></td>
 				<td><%=player.getUsername()%></td>
-				<td><%=player.getUserPlayer().getName()%> <%=player.getUserPlayer().getSurname()%></td>
-				<td><%=player.getPlayertype().name()%></td>
+				<td><%=player.getName()%></td>
+				<td><%=player.getSurname()%></td>
+				<td><%=player.getPassword()%></td>
+				<td><%=player.getPlayertype()%></td>
 				<td><%=player.getScore()%></td>
 				<td><a class="btn btn-primary btn-lg btn-block"
 					href="/player/deletePlayer?id=<%=player.getId()%>">Delete</a></td>

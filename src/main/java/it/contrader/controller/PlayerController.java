@@ -148,14 +148,16 @@ public class PlayerController {
 	public String updatePlayer(HttpServletRequest request)
 	{
 		int idUpdate = Integer.parseInt(request.getParameter("id"));
-		int IdPlayer = Integer.parseInt(request.getParameter("idplayer"));
-		String nicknameUpdate = request.getParameter("nickname");
+		String usernameUpdate = request.getParameter("username");
+		String nameUpdate = request.getParameter("name");
+		String surnameUpdate = request.getParameter("surname");
 		String passwordUpdate = request.getParameter("password");
+		int IdPlayerUpdate = Integer.parseInt(request.getParameter("idplayer"));
 		String playertypeUpdate = request.getParameter("playertype");
 		int scoreUpdate = Integer.parseInt(request.getParameter("score"));
 		
 		
-//		final PlayerDTO player = new PlayerDTO(idUpdate, username, playertype, idCoach, score);
+		final PlayerDTO playerDTO = new PlayerDTO(idUpdate, usernameUpdate, nameUpdate, surnameUpdate, passwordUpdate, PlayerType.valueOf(playertypeUpdate), IdPlayerUpdate, scoreUpdate);
 //		player.setId(idUpdate);
 //		
 //		playerService.updatePlayer(player);
