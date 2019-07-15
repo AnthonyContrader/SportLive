@@ -60,7 +60,7 @@ a {
 	font-family: Roboto-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #ffffff;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -86,7 +86,7 @@ p {
 	font-family: Roboto-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #ffffff;
 	margin: 0px;
 }
 
@@ -184,11 +184,6 @@ iframe {
 }
 
 /*==================================================================
-[ Background ]*/
-.bg1 {background: #3b5998;}
-.bg2 {background: #1da1f2;}
-.bg3 {background: #cd201f;}
-
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -600,26 +595,5 @@ input.input100 {
     visibility: visible;
     opacity: 1;
   }
-}
-
-
-
-/*==================================================================
-[ Social ]*/
-.login100-form-social-item {
-  width: 36px;
-  height: 36px;
-  font-size: 18px;
-  color: #fff;
-  border-radius: 50%;
-}
-
-.login100-form-social-item:hover {
-  background: #333333;
-  color: #fff;
-}
-.center {
-	
-margin-top: 200px;
 }
 

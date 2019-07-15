@@ -79,25 +79,17 @@
 						</button>
 					</div>
 					
-					<div class="text-center p-t-46 p-b-20">
-						<span class="txt2">
-							Login with..
-						</span>
+					<div>
+							<a href="#" class="txt3">
+								Sign in
+							</a>
 					</div>
-
-					<div class="login100-form-social flex-c-m">
-						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-							<i class="fa fa-facebook-f" aria-hidden="true"></i>
-						</a>
-
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</a>
-					</div>
+					
+										
 				</form>
-				<img alt="" src="login/img/logologo.png" width="300px"  height="300px" align="middle" class="center">
+				<img alt="" src="login/img/logologo.png" width="300px" height="300px" align="middle" class= "center">
+				</div>
 				
-			</div>
 		</div>
 	</div>
 	
