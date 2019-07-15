@@ -19,6 +19,15 @@ public class PlayerDTO {
 	private String username;
 
 	@NonNull
+	private String name;
+	
+	@NonNull
+	private String surname;
+	
+	@NonNull
+	private String password;
+	
+	@NonNull
 	private PlayerType playertype;
 
 	@NonNull
@@ -26,9 +35,9 @@ public class PlayerDTO {
 
 	@NonNull
 	private Integer score;
-
-	private UserDTO coach;
-
-	private UserDTO userPlayer;
+//
+//	private UserDTO coach;
+//
+//	private UserDTO userPlayer;
 
 }

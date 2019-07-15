@@ -36,6 +36,18 @@ public class Player implements Serializable{
 	@Column
 	@NotNull
 	private String username;
+	
+	@Column
+	@NotNull
+	private String name;
+	
+	@Column
+	@NotNull
+	private String surname;
+	
+	@Column
+	@NotNull
+	private String password;
 
 	@NotNull
 	@Column
