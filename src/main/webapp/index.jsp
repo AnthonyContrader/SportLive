@@ -87,7 +87,7 @@
 					
 										
 				</form>
-				<img alt="" src="login/img/logologo.png" width="300px" height="300px" align="middle" class= "center">
+				<img alt="" src="login/img/logologo.png" width="350px" height="350px" align="middle" class= "center" style="margin-top: 200px">
 				</div>
 				
 		</div>
