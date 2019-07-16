@@ -28,7 +28,8 @@ public class User {
 	
 	public enum Usertype {
 		ADMIN,
-		USER
+		COACH,
+		PLAYER
 	}
 
 	@Id
