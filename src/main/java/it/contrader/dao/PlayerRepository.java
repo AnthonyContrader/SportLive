@@ -13,6 +13,6 @@ public interface PlayerRepository extends CrudRepository<Player, Long> {
 
 	Player findByPlayername(String playername);
 	
-	Player findByPlayernameAndPassword(String playername, String password);
+//	Player findByPlayernameAndPassword(String playername, String password);
 	
 }

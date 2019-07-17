@@ -13,7 +13,8 @@ public class PlayerService extends AbstractService<Player, PlayerDTO> {
 		return converter.toDTO(((PlayerRepository) repository).findByPlayername(playername));
 	}
 
-	public PlayerDTO findByPlayernameAndPassword(String playername, String password) {
-		return converter.toDTO(((PlayerRepository) repository).findByPlayernameAndPassword(playername, password));
-	}
+//	public PlayerDTO findByPlayernameAndPassword(String playername, String password) {
+//		return converter.toDTO(((PlayerRepository) repository).findByPlayernameAndPassword(playername, password));
+//	}
 }
+
