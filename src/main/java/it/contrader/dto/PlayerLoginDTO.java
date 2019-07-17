@@ -14,10 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginDTO {
+public class PlayerLoginDTO {
 	
-	private String username;
-	
-	private String password;
+	private String playername;
 	
 }
