@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class DeviceDTO {
-	private long id;
+	private int id;
 	private int idplayer;
 	private int serial;
 	private int heartbeat;
