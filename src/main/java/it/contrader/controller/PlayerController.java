@@ -13,7 +13,7 @@ import it.contrader.service.PlayerService;
 @RestController
 @RequestMapping("/player")
 @CrossOrigin(origins = "http://localhost:4200")
-public class PlayerCntroller extends AbstractController <PlayerDTO>{
+public class PlayerController extends AbstractController <PlayerDTO>{
 
 	@Autowired
 	private PlayerService playerService;
