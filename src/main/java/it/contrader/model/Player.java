@@ -31,9 +31,7 @@ public class Player {
 	private int id;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "idPlayer", referencedColumnName = "id", insertable =false, updatable = false)
-	private User coach;
+	private int idPlayer;
 	
 	private int idCoach;
 	
