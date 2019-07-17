@@ -19,5 +19,10 @@ public class LoginDTO {
 	private String username;
 	
 	private String password;
+
+	public int getIdplayer() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
