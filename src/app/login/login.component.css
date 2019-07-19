@@ -1,5 +1,6 @@
 form{
-    margin-top:270px;
+    margin-top:20px;
+    margin-bottom: 90px;
     width: 55%;
     padding: 10px;
     border-radius:0;
@@ -14,7 +15,7 @@ img{
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;
-    background-color: darkorange;
+    background-color: green;
     border-radius: 0;
     color: white;
     border-bottom: 1px solid crimson;
@@ -22,22 +23,21 @@ input, input:hover, input::selection, input:checked, input:focus{
 }
 
 .container-fluid{
-    background-color: darkorange;
-    height: 100vh;
+    background-image: url('http://parmacalcio1913.com/wp-content/uploads/2017/11/news-notiziario-8-novembre.jpg');
 }
 input::placeholder{
     color: white;
 }
 .form-control{
 border: none;
-background-color: darkorange;
+background-color: green;
 color: white;
 border-bottom: 1px solid white;
 }
 
 .login{
 border: none;
-background-color: darkorange;
+background-color: green;
 color: white;
 border: 1px solid white;
 border-radius: 2px;
@@ -48,6 +48,6 @@ padding-left: auto;
 }
 
 p{
-font-size: 14px;
+font-size: 10px;
 color: white;
 }

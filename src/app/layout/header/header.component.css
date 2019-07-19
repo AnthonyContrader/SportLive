@@ -1,6 +1,6 @@
 
 #header{
-    background-color: darkorange;
+    background-color: #28a745;
 }
 .searchContainer {
     margin-top: 10px;
@@ -41,7 +41,7 @@
   
   p{
       font-size: 19px;
-      color: #f1f1f1;
+      color: darkorange;
       margin-left: 0px;
       padding-left: 5px;
       padding-top: 12px;
