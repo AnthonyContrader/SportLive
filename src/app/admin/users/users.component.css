@@ -22,27 +22,27 @@ td{
 
 
 tr:nth-child(even) {
-	background-color: #ffdb99;
+	background-color: #3c763d;
 }
 
 th {
-	background-color: darkorange;
+	background-color: #28a745;
 	color: #ffffff;
 }
 
 a:hover {
-	color: #999999;
+	color: #ffffff;
 }
 
 input, select{
-    background-color: inherit;
-    font-size: inherit;
+    background-color: #63e07f;
+    font-size: #ffffff;
 }
 
 input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
+    border: 2px solid rgb(255, 230, 0);
 }
 
 button:hover{
-    background-color: crimson;
+    background-color: rgb(255, 230, 0);
 }
