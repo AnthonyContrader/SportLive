@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            IdPlayer
+          </th>
+          <th>
+            IdCoach
+          </th>
+          <th>
+            PlayerName
+          </th>
+          <th>
+            playertype
+          </th>
+          <th>
+            Age 
+          </th>
+          <th>
+            Game Played
+          </th>
+          <th>
+            Score
+          </th>
+          <th>
+            Save 
+          </th>
+          <th>
+            Cancel
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="idplayer" [(ngModel)]="playertoinsert.idplayer">
+          </td>
+          <td>
+            <input placeholder="idcoach" [(ngModel)]="playertoinsert.idcoach">
+          </td>
+          <td>
+            <input placeholder="playername" [(ngModel)]="playertoinsert.playernane">
+          </td>
+          <td>
+            <select placeholder="playertype" [(ngModel)]="playertoinsert.playertype">
+              <option value="ATT">ATT</option>
+              <option value="CEN">CEN</option>
+              <option value="DIF">DIF</option>
+              <option value="POR">POR</option>
+            </select>
+          </td>
+          <td>
+            <input placeholder="age" [(ngModel)]="playertoinsert.age">
+          </td>
+          <td>
+            <input placeholder="gamep" [(ngModel)]="playertoinsert.gamep">
+          </td>
+          <td>
+            <input placeholder="score" [(ngModel)]="playertoinsert.score">
+          </td>
+          <td>
+            <button (click)="insert(playertoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            <input [(ngModel)]="player.idplayer">
+          </td>
+          <td>
+            <input [(ngModel)]="player.idcoach">
+          </td>
+          <td>
+            <input [(ngModel)]="player.playername">
+          </td>
+          <td>
+            <select [(ngModel)]="player.playertype">
+              <option [selected]="player.playertype===ATT" value="ATT">ATT</option>
+              <option [selected]="player.playertype===CEN" value="CEN">CEN</option>
+              <option [selected]="player.playertype===DIF" value="DIF">DIF</option>  
+              <option [selected]="player.playertype===POR" value="POR">POR</option>    
+            </select>
+          </td>
+        
+        <td>
+          <input [(ngModel)]="player.age">
+        </td>
+      
+      <td>
+        <input [(ngModel)]="player.gamep">
+      </td>
+    
+    <td>
+      <input [(ngModel)]="player.score">
+    </td>
+          <td>
+            <button (click)=update(player)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(player)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
