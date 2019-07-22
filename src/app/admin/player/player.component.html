@@ -36,13 +36,13 @@
         </tr>
         <tr>
           <td>
-            <input placeholder="idplayer" [(ngModel)]="playertoinsert.idplayer">
+            <input placeholder="idplayer" [(ngModel)]="playertoinsert.idPlayer">
           </td>
           <td>
-            <input placeholder="idcoach" [(ngModel)]="playertoinsert.idcoach">
+            <input placeholder="idcoach" [(ngModel)]="playertoinsert.idCoach">
           </td>
           <td>
-            <input placeholder="playername" [(ngModel)]="playertoinsert.playernane">
+            <input placeholder="playername" [(ngModel)]="playertoinsert.playername">
           </td>
           <td>
             <select placeholder="playertype" [(ngModel)]="playertoinsert.playertype">
@@ -68,12 +68,12 @@
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let player of players">
           <td>
-            <input [(ngModel)]="player.idplayer">
+            <input [(ngModel)]="player.idPlayer">
           </td>
           <td>
-            <input [(ngModel)]="player.idcoach">
+            <input [(ngModel)]="player.idCoach">
           </td>
           <td>
             <input [(ngModel)]="player.playername">

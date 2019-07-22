@@ -10,17 +10,19 @@ import { PlayerDTO } from 'src/dto/playerdto';
 })
 export class PlayerComponent implements OnInit {
 
-  player: PlayerDTO[];
+  players: PlayerDTO[];
   playertoinsert: PlayerDTO = new PlayerDTO();
 
   constructor(private service: PlayerService) { }
 
   ngOnInit() {
     this.getPlayers();
+    console.log("Sono qui");
   }
 
   getPlayers() {
-    this.service.getAll().subscribe(player => this.player = player);
+    this.service.getAll().subscribe(players => this.players = players);
+    console.log("sono nella get players: " + this.players);
   }
 
   delete(player: PlayerDTO) {

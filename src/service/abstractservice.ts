@@ -20,7 +20,11 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     getAll(): Observable<DTO[]> {
+
+        console.log("sono nella getAll");
+
         return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
+        
     }
 
     read(id: number): Observable<DTO> {
@@ -32,6 +36,9 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     insert(dto: DTO): Observable<any> {
+
+        console.log("sono nella insert");
+
         return this.http.post('http://localhost:' + this.port + '/' + this.type + '/insert', dto);
     }
 
