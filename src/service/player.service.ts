@@ -13,7 +13,7 @@ export class PlayerService extends AbstractService<PlayerDTO>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'user';
+    this.type = 'player';
   }
 
   login(loginDTO: LoginDTO): Observable<PlayerDTO> {
