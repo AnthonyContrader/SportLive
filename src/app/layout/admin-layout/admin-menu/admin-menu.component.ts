@@ -10,6 +10,7 @@ export class AdminMenuComponent implements OnInit {
 
   isUserCollapsed = false;
   isPlayersCollapsed = false;
+  isDeviceCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
 
@@ -34,6 +35,12 @@ export class AdminMenuComponent implements OnInit {
     if (this.isPlayersCollapsed === false) {
       this.isPlayersCollapsed = true;
     } else { this.isPlayersCollapsed = false; }
+  }
+
+  devicescollapse() {
+    if (this.isDeviceCollapsed === false) {
+      this.isDeviceCollapsed = true;
+    } else { this.isDeviceCollapsed = false; }
   }
 
   accountcollapse() {

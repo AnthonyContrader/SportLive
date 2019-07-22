@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row-mt-5">
+    <div class="col-xs-1">
+
+    </div>
+    <div class="col-xs-10">
+      <table>
+        <tr>
+          <th>
+            Idplayer
+          </th>
+          <th>
+            Serial
+          </th>
+          <th>
+            Heartbeat
+          </th>
+          <th>
+            Pressure
+          </th>
+          <th>
+            Save 
+          </th>
+          <th>
+            Cancel
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="idplayer" [(ngModel)]="devicetoinsert.idplayer">
+          </td>
+          <td>
+            <input placeholder="serial" [(ngModel)]="devicetoinsert.serial">
+          </td>
+          <td>
+            <input placeholder="heartbeat" [(ngModel)]="devicetoinsert.heartbeat">
+          </td>
+          <td>
+            <input placeholder="pressure" [(ngModel)]="devicetoinsert.pressure">
+          </td>
+          <td>
+            <button (click)="insert(devicetoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let device of devices">
+          <td>
+            <input [(ngModel)]="device.idplayer">
+          </td>
+          <td>
+            <input [(ngModel)]="device.serial">
+          </td>
+          <td>
+            <input [(ngModel)]="device.heartbeat">
+          </td>
+          <td>
+            <input [(ngModel)]="device.pressure">
+          </td>
+          <td>
+            <button (click)=update(device)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(device)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-xs-1">
+
+    </div>
+  </div>
+</div>
+

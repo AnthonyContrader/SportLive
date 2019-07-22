@@ -6,6 +6,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { PlayerComponent } from './player/player.component';
+import { DeviceComponent } from './device/device.component';
+
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -16,7 +18,7 @@ import { PlayerComponent } from './player/player.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, PlayerComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, PlayerComponent, DeviceComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

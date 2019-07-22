@@ -4,6 +4,7 @@ import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.compon
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { PlayerComponent } from './player/player.component';
+import { DeviceComponent } from './device/device.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
     { path: 'player', component: PlayerComponent},
+    { path: 'device', component: DeviceComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];
