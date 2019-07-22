@@ -18,7 +18,7 @@ public class PlayerController extends AbstractController <PlayerDTO>{
 	@Autowired
 	private PlayerService playerService;
 	
-	@PostMapping(value = "/readPlayerData")
+	@PostMapping(value = "/login")
 	public PlayerDTO readPlayerData( @RequestBody PlayerLoginDTO playerLoginDTO) {
 		return playerService.findByPlayername(playerLoginDTO.getPlayername());
 	}

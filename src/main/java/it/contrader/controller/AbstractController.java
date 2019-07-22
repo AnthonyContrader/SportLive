@@ -30,7 +30,8 @@ public abstract class AbstractController <DTO>{
 	
 	@GetMapping("/getall")
 	public Iterable<DTO> getAll(){
-		return service.getAll();		
+		System.out.println("sono passato dalla get all");
+		return service.getAll();	
 	}
 	
 	@DeleteMapping("/delete")
