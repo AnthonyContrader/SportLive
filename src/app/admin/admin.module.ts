@@ -5,7 +5,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
-import { CoachDashboardComponent } from './coach-dashboard/coach-dashboard.component';
 import { PlayerComponent } from './player/player.component';
 
 /**
@@ -17,7 +16,7 @@ import { PlayerComponent } from './player/player.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, CoachDashboardComponent, PlayerComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, PlayerComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

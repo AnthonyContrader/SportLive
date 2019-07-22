@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             break;
           }
           case 'COACH': {
-            this.router.navigate(['/coa-dashboard']);
+            this.router.navigate(['/coach-dashboard']);
             break;
           }
           default:

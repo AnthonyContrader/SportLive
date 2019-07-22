@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { CoachComponent } from './coach/coach.component';
+import { CoachDashboardComponent } from './coach/coach-dashboard/coach-dashboard.component';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -19,7 +20,8 @@ import { CoachComponent } from './coach/coach.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CoachComponent
+    CoachComponent,
+    CoachDashboardComponent
   ],
   imports: [
     BrowserModule,

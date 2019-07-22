@@ -4,7 +4,7 @@ import { PlayerDTO } from 'src/dto/playerdto';
 
 
 @Component({
-  selector: 'app-players',
+  selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
