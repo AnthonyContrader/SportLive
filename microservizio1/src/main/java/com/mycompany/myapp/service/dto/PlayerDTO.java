@@ -12,8 +12,6 @@ public class PlayerDTO implements Serializable {
 
     private String playername;
 
-    private String playertype;
-
     private Integer age;
 
     private Integer gamep;
@@ -34,14 +32,6 @@ public class PlayerDTO implements Serializable {
 
     public void setPlayername(String playername) {
         this.playername = playername;
-    }
-
-    public String getPlayertype() {
-        return playertype;
-    }
-
-    public void setPlayertype(String playertype) {
-        this.playertype = playertype;
     }
 
     public Integer getAge() {
@@ -94,7 +84,6 @@ public class PlayerDTO implements Serializable {
         return "PlayerDTO{" +
             "id=" + getId() +
             ", playername='" + getPlayername() + "'" +
-            ", playertype='" + getPlayertype() + "'" +
             ", age=" + getAge() +
             ", gamep=" + getGamep() +
             ", score=" + getScore() +

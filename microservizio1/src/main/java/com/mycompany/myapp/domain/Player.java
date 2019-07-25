@@ -22,9 +22,6 @@ public class Player implements Serializable {
     @Column(name = "playername")
     private String playername;
 
-    @Column(name = "playertype")
-    private String playertype;
-
     @Column(name = "age")
     private Integer age;
 
@@ -54,19 +51,6 @@ public class Player implements Serializable {
 
     public void setPlayername(String playername) {
         this.playername = playername;
-    }
-
-    public String getPlayertype() {
-        return playertype;
-    }
-
-    public Player playertype(String playertype) {
-        this.playertype = playertype;
-        return this;
-    }
-
-    public void setPlayertype(String playertype) {
-        this.playertype = playertype;
     }
 
     public Integer getAge() {
@@ -134,7 +118,6 @@ public class Player implements Serializable {
         return "Player{" +
             "id=" + getId() +
             ", playername='" + getPlayername() + "'" +
-            ", playertype='" + getPlayertype() + "'" +
             ", age=" + getAge() +
             ", gamep=" + getGamep() +
             ", score=" + getScore() +

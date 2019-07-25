@@ -45,9 +45,6 @@ public class PlayerResourceIntTest {
     private static final String DEFAULT_PLAYERNAME = "AAAAAAAAAA";
     private static final String UPDATED_PLAYERNAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PLAYERTYPE = "AAAAAAAAAA";
-    private static final String UPDATED_PLAYERTYPE = "BBBBBBBBBB";
-
     private static final Integer DEFAULT_AGE = 1;
     private static final Integer UPDATED_AGE = 2;
 
@@ -104,7 +101,6 @@ public class PlayerResourceIntTest {
     public static Player createEntity(EntityManager em) {
         Player player = new Player()
             .playername(DEFAULT_PLAYERNAME)
-            .playertype(DEFAULT_PLAYERTYPE)
             .age(DEFAULT_AGE)
             .gamep(DEFAULT_GAMEP)
             .score(DEFAULT_SCORE);
@@ -133,7 +129,6 @@ public class PlayerResourceIntTest {
         assertThat(playerList).hasSize(databaseSizeBeforeCreate + 1);
         Player testPlayer = playerList.get(playerList.size() - 1);
         assertThat(testPlayer.getPlayername()).isEqualTo(DEFAULT_PLAYERNAME);
-        assertThat(testPlayer.getPlayertype()).isEqualTo(DEFAULT_PLAYERTYPE);
         assertThat(testPlayer.getAge()).isEqualTo(DEFAULT_AGE);
         assertThat(testPlayer.getGamep()).isEqualTo(DEFAULT_GAMEP);
         assertThat(testPlayer.getScore()).isEqualTo(DEFAULT_SCORE);
@@ -171,7 +166,6 @@ public class PlayerResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(player.getId().intValue())))
             .andExpect(jsonPath("$.[*].playername").value(hasItem(DEFAULT_PLAYERNAME.toString())))
-            .andExpect(jsonPath("$.[*].playertype").value(hasItem(DEFAULT_PLAYERTYPE.toString())))
             .andExpect(jsonPath("$.[*].age").value(hasItem(DEFAULT_AGE)))
             .andExpect(jsonPath("$.[*].gamep").value(hasItem(DEFAULT_GAMEP)))
             .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE)));
@@ -190,7 +184,6 @@ public class PlayerResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(player.getId().intValue()))
             .andExpect(jsonPath("$.playername").value(DEFAULT_PLAYERNAME.toString()))
-            .andExpect(jsonPath("$.playertype").value(DEFAULT_PLAYERTYPE.toString()))
             .andExpect(jsonPath("$.age").value(DEFAULT_AGE))
             .andExpect(jsonPath("$.gamep").value(DEFAULT_GAMEP))
             .andExpect(jsonPath("$.score").value(DEFAULT_SCORE));
@@ -217,7 +210,6 @@ public class PlayerResourceIntTest {
         em.detach(updatedPlayer);
         updatedPlayer
             .playername(UPDATED_PLAYERNAME)
-            .playertype(UPDATED_PLAYERTYPE)
             .age(UPDATED_AGE)
             .gamep(UPDATED_GAMEP)
             .score(UPDATED_SCORE);
@@ -233,7 +225,6 @@ public class PlayerResourceIntTest {
         assertThat(playerList).hasSize(databaseSizeBeforeUpdate);
         Player testPlayer = playerList.get(playerList.size() - 1);
         assertThat(testPlayer.getPlayername()).isEqualTo(UPDATED_PLAYERNAME);
-        assertThat(testPlayer.getPlayertype()).isEqualTo(UPDATED_PLAYERTYPE);
         assertThat(testPlayer.getAge()).isEqualTo(UPDATED_AGE);
         assertThat(testPlayer.getGamep()).isEqualTo(UPDATED_GAMEP);
         assertThat(testPlayer.getScore()).isEqualTo(UPDATED_SCORE);

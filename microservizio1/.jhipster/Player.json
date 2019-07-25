@@ -8,10 +8,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "playertype",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "age",
             "fieldType": "Integer"
         },

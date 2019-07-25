@@ -26,10 +26,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="playertype" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
             <column name="age" type="integer">
                 <constraints nullable="true" />
             </column>
