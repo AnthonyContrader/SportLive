@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "serial",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "heartbeat",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "pressure",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20190725093722",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "device",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "microservizio2"
+}

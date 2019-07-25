@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "playername",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "playertype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gamep",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20190725093137",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "player",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "microservizio1"
+}
