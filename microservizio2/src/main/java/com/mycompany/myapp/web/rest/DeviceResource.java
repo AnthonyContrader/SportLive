@@ -16,6 +16,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Device.
@@ -79,11 +80,16 @@ public class DeviceResource {
     /**
      * GET  /devices : get all the devices.
      *
+     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of devices in body
      */
     @GetMapping("/devices")
     @Timed
-    public List<DeviceDTO> getAllDevices() {
+    public List<DeviceDTO> getAllDevices(@RequestParam(required = false) String filter) {
+        if ("player_device-is-null".equals(filter)) {
+            log.debug("REST request to get all Devices where player_device is null");
+            return deviceService.findAllWherePlayer_deviceIsNull();
+        }
         log.debug("REST request to get all Devices");
         return deviceService.findAll();
     }

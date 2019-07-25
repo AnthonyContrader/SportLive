@@ -1,7 +1,15 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "player_device",
+            "otherEntityName": "player",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "device"
+        }
+    ],
     "fields": [
         {
             "fieldName": "serial",

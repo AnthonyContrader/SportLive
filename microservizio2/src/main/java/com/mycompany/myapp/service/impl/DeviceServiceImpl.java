@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 /**
  * Service Implementation for managing Device.
  */
@@ -61,6 +62,21 @@ public class DeviceServiceImpl implements DeviceService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+
+
+    /**
+     *  get all the devices where Player_device is null.
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<DeviceDTO> findAllWherePlayer_deviceIsNull() {
+        log.debug("Request to get all devices where Player_device is null");
+        return StreamSupport
+            .stream(deviceRepository.findAll().spliterator(), false)
+            .filter(device -> device.getPlayer_device() == null)
+            .map(deviceMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one device by id.

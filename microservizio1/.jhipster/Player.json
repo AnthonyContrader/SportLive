@@ -8,10 +8,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "playertype",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "age",
             "fieldType": "Integer"
         },
@@ -22,6 +18,11 @@
         {
             "fieldName": "score",
             "fieldType": "Integer"
+        },
+        {
+            "fieldName": "playertype",
+            "fieldType": "Playertype",
+            "fieldValues": "ATT,DIF,CEN,POR"
         }
     ],
     "changelogDate": "20190725093137",

@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -27,6 +28,10 @@ public class Device implements Serializable {
 
     @Column(name = "pressure")
     private Integer pressure;
+
+    @OneToOne(mappedBy = "device")
+    @JsonIgnore
+    private Player player_device;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -74,6 +79,19 @@ public class Device implements Serializable {
 
     public void setPressure(Integer pressure) {
         this.pressure = pressure;
+    }
+
+    public Player getPlayer_device() {
+        return player_device;
+    }
+
+    public Device player_device(Player player) {
+        this.player_device = player;
+        return this;
+    }
+
+    public void setPlayer_device(Player player) {
+        this.player_device = player;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

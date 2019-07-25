@@ -24,6 +24,12 @@ public interface DeviceService {
      * @return the list of entities
      */
     List<DeviceDTO> findAll();
+    /**
+     * Get all the DeviceDTO where Player_device is null.
+     *
+     * @return the list of entities
+     */
+    List<DeviceDTO> findAllWherePlayer_deviceIsNull();
 
 
     /**

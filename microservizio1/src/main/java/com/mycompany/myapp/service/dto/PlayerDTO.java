@@ -2,6 +2,7 @@ package com.mycompany.myapp.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
+import com.mycompany.myapp.domain.enumeration.Playertype;
 
 /**
  * A DTO for the Player entity.
@@ -12,13 +13,13 @@ public class PlayerDTO implements Serializable {
 
     private String playername;
 
-    private String playertype;
-
     private Integer age;
 
     private Integer gamep;
 
     private Integer score;
+
+    private Playertype playertype;
 
     public Long getId() {
         return id;
@@ -34,14 +35,6 @@ public class PlayerDTO implements Serializable {
 
     public void setPlayername(String playername) {
         this.playername = playername;
-    }
-
-    public String getPlayertype() {
-        return playertype;
-    }
-
-    public void setPlayertype(String playertype) {
-        this.playertype = playertype;
     }
 
     public Integer getAge() {
@@ -66,6 +59,14 @@ public class PlayerDTO implements Serializable {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public Playertype getPlayertype() {
+        return playertype;
+    }
+
+    public void setPlayertype(Playertype playertype) {
+        this.playertype = playertype;
     }
 
     @Override
@@ -94,10 +95,10 @@ public class PlayerDTO implements Serializable {
         return "PlayerDTO{" +
             "id=" + getId() +
             ", playername='" + getPlayername() + "'" +
-            ", playertype='" + getPlayertype() + "'" +
             ", age=" + getAge() +
             ", gamep=" + getGamep() +
             ", score=" + getScore() +
+            ", playertype='" + getPlayertype() + "'" +
             "}";
     }
 }
