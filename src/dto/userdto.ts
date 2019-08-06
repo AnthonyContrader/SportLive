@@ -11,8 +11,8 @@ import {Usertype} from './usertype';
 export class UserDTO {
 
    id: number;
-
-   username: string;
+   
+   login: string;
 
    password: string;
 
