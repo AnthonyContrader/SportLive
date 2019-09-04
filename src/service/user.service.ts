@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';
 
-/**
+/** 
  * I service sono decorati da @Injectable. 
  * Qui trovate, oltre ai metodi ereditati dall'Abstract,
  *  il metodo per il login (in mirror con il backend).
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
  * @see AbstractService
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'hhhh
 })
 export class UserService extends AbstractService<UserDTO>{
 
